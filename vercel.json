@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/ces", "destination": "/ces.html" }
+  ]
+}
