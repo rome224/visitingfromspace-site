@@ -1,5 +1,27 @@
 {
   "rewrites": [
-    { "source": "/ces", "destination": "/ces.html" }
+    {
+      "source": "/ces",
+      "destination": "/ces.html"
+    },
+    {
+      "source": "/application",
+      "destination": "/application.html"
+    },
+    {
+      "source": "/questionnaire",
+      "destination": "/questionnaire.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(application|questionnaire)(.html)?",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    }
   ]
 }
