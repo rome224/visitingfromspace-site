@@ -313,6 +313,8 @@ html{scroll-behavior:smooth}
  .know .shot{order:-1}
  .card .big{font-size:27px}
 }
+#f1.sent{background:#fff;color:#111}
+#f1.sent .lf-done span{color:#555}
 </style>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
 <script defer src="/_vercel/insights/script.js"></script>
@@ -483,7 +485,7 @@ f.addEventListener('submit',function(e){e.preventDefault();var btn=f.querySelect
 if(!f.checkValidity()){f.reportValidity();return}
 btn.disabled=true;n.className='lf-note';n.textContent='Sending...';
 fetch(f.action,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)}).then(function(r){return r.json()}).then(function(d){
-if(d.success){Array.prototype.forEach.call(f.children,function(c){if(!c.classList.contains('lf-done')&&c.type!=='hidden')c.style.display='none'});f.querySelector('.lf-done').hidden=false}else throw 0}).catch(function(){btn.disabled=false;n.className='lf-note err';n.textContent='Sorry, something went wrong. Please try again.'})})});
+if(d.success){Array.prototype.forEach.call(f.children,function(c){if(!c.classList.contains('lf-done')&&c.type!=='hidden')c.style.display='none'});f.querySelector('.lf-done').hidden=false;f.classList.add('sent')}else throw 0}).catch(function(){btn.disabled=false;n.className='lf-note err';n.textContent='Sorry, something went wrong. Please try again.'})})});
 document.addEventListener('contextmenu',function(e){if(e.target.tagName==='IMG')e.preventDefault()});
 </script>
 <script>
