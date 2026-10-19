@@ -48,7 +48,7 @@ img{display:block;max-width:100%}
 
 /* logos */
 .logos{background:#fff;padding:22px 48px 0}
-.logos-row{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding-bottom:20px;border-bottom:1px solid #e3e3e3}
+.logos-row{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding-bottom:20px}
 .logos-row img{height:26px;width:auto}
 .logos-row img[alt="Good Morning America"]{height:34px}
 .intro{text-align:center;padding:24px 48px 34px;background:#fff}
@@ -209,6 +209,11 @@ html{scroll-behavior:smooth}
 .hero-proof{list-style:none;display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:22px}
 .hero-proof li{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 13px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);font-size:13px;font-weight:600;color:#e8e8e8;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
 .hero-proof b{color:#fff;font-weight:800}
+.hero-proof li.top{height:44px;padding:0 18px 0 14px;gap:8px;background:#fff;border-color:#fff;color:#111;font-size:16px;font-weight:800;letter-spacing:-.01em;box-shadow:0 10px 26px -10px rgba(0,0,0,.55)}
+.hero-proof li.top b{color:var(--o);font-size:20px;font-weight:900}
+.hero-proof li.top svg{width:22px;height:22px}
+.hero-proof li:not(.top){height:44px}
+.hero-proof{gap:10px 12px}
 .logos-lbl{text-align:center;font-size:11.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#8a8a8a;margin-bottom:12px}
 .eyebrow{text-align:center;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--o);margin-bottom:10px}
 .stats{background:var(--k);padding:30px 48px 34px}
@@ -272,7 +277,9 @@ html{scroll-behavior:smooth}
 @media (max-width:760px){.why{padding:34px 18px 36px}.why-in{grid-template-columns:1fr;gap:26px}}
 
 /* results cards */
-.res{background:#f4f4f5;padding:44px 48px 46px;border-top:1px solid #e6e6e8}
+.res{background:#f4f4f5;padding:44px 48px 46px}
+.res .res-sub{text-align:center;max-width:620px;margin:-12px auto 28px;font-size:16.5px;line-height:26px;color:#444}
+.res .res-sub b{color:#111}
 .res .sh{text-align:center;max-width:640px;margin:0 auto 26px}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .card{background:#fff;border-radius:16px;overflow:hidden;border:1px solid #e4e4e7;box-shadow:0 10px 30px -18px rgba(0,0,0,.25);display:flex;flex-direction:column}
@@ -317,6 +324,24 @@ html{scroll-behavior:smooth}
 #f1.sent .lf-done span{color:#555}
 .logos-row img[alt="CNBC"]{height:44px}.logos-row img[alt="TechCrunch"]{height:36px}.logos-row img[alt="Forbes"]{height:38px}.logos-row img[alt="Wired"]{height:35px}.logos-row img[alt="Engadget"]{height:22px}.logos-row img[alt="Fast Company"]{height:31px}.logos-row img[alt="Good Morning America"]{height:38px}
 @media (max-width:760px){.logos-row img[alt="CNBC"]{height:36px}.logos-row img[alt="TechCrunch"]{height:29px}.logos-row img[alt="Forbes"]{height:30px}.logos-row img[alt="Wired"]{height:28px}.logos-row img[alt="Engadget"]{height:18px}.logos-row img[alt="Fast Company"]{height:25px}.logos-row img[alt="Good Morning America"]{height:30px}}
+
+.hero-top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.hero-top .hero-proof{margin-top:0;gap:10px}
+.hero-top .hero-proof li.top{height:40px;font-size:14.5px;padding:0 15px 0 12px}
+.hero-top .hero-proof li.top b{font-size:18px}
+.hero-top .hero-proof li.top svg{width:19px;height:19px}
+@media (max-width:760px){
+ .hero-top{flex-direction:column;align-items:flex-start;gap:16px}
+ .hero-top .hero-proof{gap:8px}
+ .hero-top .hero-proof li.top{height:34px;font-size:12.5px;padding:0 11px 0 9px;gap:6px}
+ .hero-top .hero-proof li.top b{font-size:15px}
+ .hero-top .hero-proof li.top svg{width:16px;height:16px}
+}
+
+.cred{display:flex;align-items:center;gap:14px;font-size:14px;font-weight:700;letter-spacing:.01em;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.cred b{color:var(--o);font-weight:900;font-size:16px;margin-right:3px}
+.cred i{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.55)}
+@media (max-width:760px){.cred{font-size:12.5px;gap:10px}.cred b{font-size:14px}}
 </style>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
 <script defer src="/_vercel/insights/script.js"></script>
@@ -349,12 +374,11 @@ html{scroll-behavior:smooth}
 
 <section class="hero">
   <div class="hero-ph" aria-hidden="true"></div>
-  <div class="hero-top"><a href="https://www.visitingfromspace.com/" aria-label="Visiting From Space home" style="display:inline-block"><img src="images/visiting-from-space-tech-pr-agency-logo.png" alt="Visiting From Space"></a></div>
+  <div class="hero-top"><a href="https://www.visitingfromspace.com/" aria-label="Visiting From Space home" style="display:inline-block"><img src="images/visiting-from-space-tech-pr-agency-logo.png" alt="Visiting From Space"></a><p class="cred"><span><b>#1</b> PR Agency for CES Exhibitors</span><i></i><span><b>13+</b> Years at CES</span></p></div>
   <div class="hero-in">
     <div>
       <h1>Get Your Company Covered by Engadget, Forbes, CNBC and TechCrunch at <em>CES 2027</em></h1>
       <p class="sub">GUARANTEED CES MEETINGS<br>WITH TOP REPORTERS</p>
-      <ul class="hero-proof"><li><b>13+</b> years</li><li><b>#1</b> PR agency for CES exhibitors</li></ul>
     </div>
     <form class="lf" id="f1" action="https://api.web3forms.com/submit" method="POST">
   <input type="hidden" name="access_key" value="6405bf77-93e0-41d9-9ff0-f884683c006e">
@@ -380,7 +404,8 @@ html{scroll-behavior:smooth}
 <section class="res">
   <p class="eyebrow">Real results from real CES clients</p>
   <h2 class="sh">How Our Clients Became the Most Covered Booths at CES</h2>
-  <div class="cards">
+  <p class="res-sub">Once you're on board, fasten your seatbelt and get ready for amazing press at the show.</p>
+    <div class="cards">
     <article class="card">
       <div class="ph"><img src="gyrogear-ces-innovation-awards-booth.jpg" width="900" height="600" alt="The GyroGear team celebrating their CES Innovation Awards" loading="lazy"><span>GyroGear</span></div>
       <div class="bd">
@@ -432,7 +457,7 @@ html{scroll-behavior:smooth}
       <p class="lead">Most exhibitors send cold emails to a media list and hope for replies. Not us. <b>Throughout the year, we work directly with the reporters and producers who decide what gets covered at CES.</b> We've built real relationships with thousands of them. They aren't just names on a list. They're trusted connections who respond when we reach out.</p>
       <ul class="proof">
         <li><b>NBC News producers reach out to us every year</b> asking what we'll be showcasing at CES.</li>
-        <li><b>We reached out directly to the CEO of Fast Company and Inc.</b> Within hours, she personally confirmed she'd come to CES to interview our client. That's the level of access we have to the most influential people in media.</li>
+        <li><b>We reached out directly to the CEO of Fast Company.</b> Within hours, she personally confirmed she'd come to CES to interview our client. That's the level of access we have to the most influential people in media.</li>
         <li><b>Even the world's top PR agencies hire us</b> when their clients need help at CES.</li>
       </ul>
     </div>
