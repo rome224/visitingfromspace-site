@@ -359,6 +359,13 @@ html{scroll-behavior:smooth}
 #f1 .orb{position:absolute;z-index:-1;right:-75px;bottom:70px;width:170px;height:170px;border-radius:50%;border:22px solid rgba(255,255,255,.08);pointer-events:none}
 #f1 .lf-t{font-size:17px;letter-spacing:.04em;line-height:1.25;white-space:nowrap}
 @media (max-width:380px){#f1 .lf-t{font-size:15.5px}}
+.card .vlink{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:14px;font-weight:800;color:var(--o);text-decoration:none}
+.card .vlink:hover{text-decoration:underline}
+.card .phv{display:block;cursor:pointer}
+.card .phv .pbtn{position:absolute;left:50%;top:50%;width:74px;height:74px;margin:-37px 0 0 -37px;border-radius:50%;background:rgba(0,0,0,.38);border:2px solid rgba(255,255,255,.85);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;transition:transform .2s,background .2s}
+.card .phv .pbtn svg{width:40px;height:40px;margin-left:3px}
+.card .phv:hover .pbtn{transform:scale(1.08);background:rgba(255,90,31,.85);border-color:#fff}
+@media (max-width:760px){.card .phv .pbtn{width:60px;height:60px;margin:-30px 0 0 -30px}.card .phv .pbtn svg{width:32px;height:32px}}
 </style>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
 <script defer src="/_vercel/insights/script.js"></script>
@@ -425,12 +432,13 @@ html{scroll-behavior:smooth}
   <p class="res-sub"><b class="turn">It's your turn.</b> Once you're on board, fasten your seatbelt and get ready for some amazing press at the show. <span class="rk" aria-hidden="true">🚀</span></p>
     <div class="cards">
     <article class="card">
-      <div class="ph"><img src="gyrogear-ces-innovation-awards-booth.jpg" width="900" height="600" alt="The GyroGear team celebrating their CES Innovation Awards" loading="lazy"><span>GyroGear</span></div>
+      <a class="ph phv" href="/ces-case-study-gyrogear" aria-label="Watch the GyroGear video case study"><img src="gyrogear-ces-innovation-awards-booth.jpg" width="900" height="600" alt="The GyroGear team celebrating their CES Innovation Awards" loading="lazy"><span>GyroGear</span><i class="pbtn" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="#fff" d="M7 4.2v15.6a1 1 0 0 0 1.5.86l12.6-7.8a1 1 0 0 0 0-1.72L8.5 3.34A1 1 0 0 0 7 4.2z"/></svg></i></a>
       <div class="bd">
         <div class="big">364 media features</div>
         <h3>A tiny booth that became one of the biggest stories of CES</h3>
         <p>Their glove steadies shaking hands, but it was lost among 4,200+ exhibitors. So we started booking interviews months before CES. Engadget named it one of the Top 12 products of the entire show. There was so much buzz, even the CEO of Microsoft booked a meeting.</p>
         <p class="out">Covered by <b>Wired, Engadget, Associated Press, etc.</b></p>
+        <a class="vlink" href="/ces-case-study-gyrogear">▶ Watch the video case study</a>
       </div>
     </article>
     <article class="card">

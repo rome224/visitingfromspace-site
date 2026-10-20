@@ -11,6 +11,10 @@
     {
       "source": "/questionnaire",
       "destination": "/questionnaire.html"
+    },
+    {
+      "source": "/ces-case-study-gyrogear",
+      "destination": "/ces-case-study-gyrogear.html"
     }
   ],
   "headers": [
