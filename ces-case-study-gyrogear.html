@@ -214,7 +214,8 @@ img,video{display:block;max-width:100%}
 <script>
 (function(){var w=document.getElementById('vw'),v=document.getElementById('vid');
 w.querySelector('.play').addEventListener('click',function(){w.classList.add('on');v.controls=true;v.play()});
-v.addEventListener('play',function(){w.classList.add('on')});})();
+v.addEventListener('play',function(){w.classList.add('on')});
+v.addEventListener('ended',function(){if(document.fullscreenElement&&document.exitFullscreen)document.exitFullscreen();v.controls=false;v.load();w.classList.remove('on')});})();
 document.querySelectorAll('form.lf').forEach(function(f){if(!window.fetch)return;
 f.addEventListener('submit',function(e){e.preventDefault();var btn=f.querySelector('button'),n=f.querySelector('.lf-note');
 if(!f.checkValidity()){f.reportValidity();return}
