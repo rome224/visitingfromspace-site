@@ -454,7 +454,7 @@ document.querySelectorAll('form.reqform').forEach(function(f){f.addEventListener
 </script>
 <script>
 (function(){
-  var target=new Date(2027,0,6,0,0,0).getTime();
+  var target=new Date('2027-01-06T10:00:00-08:00').getTime();
   function p(n){return (n<10?'0':'')+n;}
   function tick(){
     var d=target-Date.now(); if(d<0)d=0;
