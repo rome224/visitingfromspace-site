@@ -1,30 +1,16 @@
 {
   "rewrites": [
-    {
-      "source": "/ces",
-      "destination": "/ces.html"
-    },
-    {
-      "source": "/application",
-      "destination": "/application.html"
-    },
-    {
-      "source": "/questionnaire",
-      "destination": "/questionnaire.html"
-    },
-    {
-      "source": "/ces-case-study-gyrogear",
-      "destination": "/ces-case-study-gyrogear.html"
-    }
+    { "source": "/ces", "destination": "/ces.html" },
+    { "source": "/ces2027", "destination": "/ces2027.html" },
+    { "source": "/application", "destination": "/application.html" },
+    { "source": "/questionnaire", "destination": "/questionnaire.html" },
+    { "source": "/ces-case-study-gyrogear", "destination": "/ces-case-study-gyrogear.html" }
   ],
   "headers": [
     {
       "source": "/(application|questionnaire)(.html)?",
       "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex, nofollow"
-        }
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
       ]
     }
   ]
