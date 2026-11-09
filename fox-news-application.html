@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fox News Broadcast — CES 2027 | Visiting From Space</title>
+<meta name="description" content="Apply for a live product segment on Fox News at CES 2027.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0b1e3f;--navy2:#0a1733;--or:#ff5a1f;--ink:#111826;
+    --muted:#5b6676;--line:#e4e8ef;--bg:#f5f7fa;--card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;overflow-x:hidden}
+  img{max-width:100%}
+  body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:840px;margin:0 auto;padding:0 16px}
+
+  /* Hero */
+  .hero{
+    position:relative;color:#fff;padding:44px 0 40px;overflow:hidden;
+    background:radial-gradient(900px 400px at 15% -10%, rgba(255,90,31,.28), transparent 60%),
+               radial-gradient(700px 380px at 95% 0%, rgba(255,90,31,.16), transparent 55%),
+               linear-gradient(180deg,var(--navy),var(--navy2));
+  }
+  .brand{font-family:'Instrument Sans',sans-serif;font-weight:700;letter-spacing:.14em;font-size:13px;text-transform:uppercase;color:#cdd7e8;margin:0 0 22px}
+  .brand b{color:#fff}
+  .brand .sub{color:#fff}
+  .hero-top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:0 0 20px}
+  .hero-top .label{font-family:'Instrument Sans',sans-serif;font-weight:700;letter-spacing:.14em;font-size:13px;text-transform:uppercase;color:#fff;margin:0}
+  .hero-logo{flex:0 0 auto;display:inline-flex;line-height:0}
+  .hero-logo img{height:38px;width:auto;display:block}
+  @media(max-width:520px){.hero-logo img{height:28px}}
+  .eyebrow{font-family:'Instrument Sans',sans-serif;text-transform:uppercase;letter-spacing:.16em;font-weight:600;font-size:12.5px;color:var(--or);margin:0 0 12px}
+  .hero h1{font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:clamp(28px,5.2vw,40px);line-height:1.1;margin:0 0 14px;letter-spacing:-.01em}
+  .hero h1 em{color:var(--or);font-style:normal}
+  .hero p{font-size:clamp(15px,2.2vw,17px);color:#d7deea;margin:0;max-width:none}
+  .hero p + p{margin-top:12px}
+
+  /* Card */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 10px 30px rgba(11,30,63,.06);padding:26px 22px 28px;margin:-22px auto 26px;position:relative;z-index:2}
+  .sec-eyebrow{font-family:'Instrument Sans',sans-serif;text-transform:uppercase;letter-spacing:.14em;font-weight:600;font-size:12px;color:var(--or);margin:0 0 6px}
+  .card h2{font-family:'Instrument Sans',sans-serif;font-size:21px;margin:0 0 6px}
+  .lead{font-size:15px;color:var(--muted);margin:0 0 22px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+
+  .field{margin:0 0 18px;min-width:0}
+  label{display:block;font-weight:600;font-size:14px;margin:0 0 7px;color:var(--ink)}
+  label .opt{font-weight:400;color:var(--muted)}
+  .req{color:var(--or)}
+  .hint{font-size:12.5px;color:var(--muted);margin:6px 0 0}
+  input[type=text],input[type=url],input[type=email],textarea{width:100%;font-family:inherit;font-size:15px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 13px;outline:none;transition:border-color .15s,box-shadow .15s}
+  input:focus,textarea:focus{border-color:var(--or);box-shadow:0 0 0 3px rgba(255,90,31,.14)}
+  textarea{resize:vertical;min-height:84px}
+  .uploads{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+  .uploads .up{min-width:0}
+  .uploads label{font-size:13px}
+  input[type=file]{width:100%;font-family:inherit;font-size:12.5px;color:var(--muted);background:#fff;border:1px dashed #c7d0dd;border-radius:10px;padding:10px;cursor:pointer;min-width:0}
+  input[type=file]::file-selector-button{font-family:inherit;font-weight:600;font-size:12px;border:0;border-radius:7px;padding:7px 10px;margin-right:10px;background:#eef1f6;color:var(--ink);cursor:pointer}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:520px){.row2{grid-template-columns:1fr}.uploads{grid-template-columns:1fr}}
+  .btn{width:100%;border:0;border-radius:11px;cursor:pointer;background:var(--or);color:#fff;font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:16px;padding:15px 18px;margin-top:6px;letter-spacing:.01em;transition:transform .05s ease,background .15s}
+  .btn:hover{background:#ea4f16}
+  .btn:active{transform:translateY(1px)}
+  .hp{position:absolute!important;left:-9999px!important;top:-9999px!important}
+  .done{display:none;text-align:center;padding:14px 6px 8px}
+  .done.show{display:block}
+  .done .mark{width:58px;height:58px;border-radius:50%;background:rgba(255,90,31,.12);color:var(--or);display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 16px;font-weight:700}
+  .done h2{font-family:'Instrument Sans',sans-serif;font-size:22px;margin:0 0 8px}
+  .done p{color:var(--muted);font-size:15px;margin:0 auto;max-width:440px}
+  .err{display:none;background:#fff3ef;border:1px solid #ffd3c2;color:#b23b14;border-radius:10px;padding:12px 14px;font-size:14px;margin:0 0 16px}
+  .err.show{display:block}
+
+  /* FAQ */
+  .faq h2{margin-bottom:4px}
+  .faq .lead{border-bottom:none;padding-bottom:0;margin-bottom:18px}
+  details{border:1px solid var(--line);border-radius:11px;padding:0;margin:0 0 10px;overflow:hidden;background:#fff}
+  details[open]{border-color:#d4dbe6;box-shadow:0 4px 14px rgba(11,30,63,.05)}
+  summary{list-style:none;cursor:pointer;padding:15px 44px 15px 16px;font-weight:600;font-size:15px;color:var(--ink);position:relative}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:20px;font-weight:600;color:var(--or);line-height:1}
+  details[open] summary::after{content:"–"}
+  details .ans{padding:0 16px 16px;color:#36414f;font-size:14.5px;line-height:1.6}
+  .checklist{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 20px 8px;margin:18px 0 0}
+  .checklist h3{font-family:'Instrument Sans',sans-serif;font-size:17px;margin:0 0 4px}
+  .checklist .sub{color:var(--muted);font-size:14px;margin:0 0 14px}
+  .checklist .item{display:flex;gap:11px;padding:0 0 14px;align-items:flex-start}
+  .checklist .dot{flex:0 0 auto;width:18px;height:18px;border-radius:5px;background:rgba(255,90,31,.12);color:var(--or);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px}
+  .checklist .txt{font-size:14.5px;color:#36414f;line-height:1.55}
+  .checklist .txt b{color:var(--ink)}
+  .deadline{color:var(--or);font-weight:600}
+
+  .foot{text-align:center;font-size:12.5px;color:var(--muted);margin:14px auto 50px;max-width:560px;padding:0 16px}
+</style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-top">
+        <p class="label">Application</p>
+        <a class="hero-logo" href="https://www.visitingfromspace.com" target="_blank" rel="noopener"><img src="https://www.visitingfromspace.com/images/visiting-from-space-tech-pr-agency-logo.png" alt="Visiting From Space"></a>
+      </div>
+      <h1><em>Fox News</em> CES 2027</h1>
+      <p>Every year, Fox News produces a Show and Tell segment that highlights products from CES. It's filmed live at CES and airs on Fox News affiliate stations in major markets. The reach is tremendous.</p>
+      <p>We work directly with the Fox team that decides which products make the segment. This form streamlines the process so we can submit your product to them for consideration. Fox News is already selecting which products to feature, so it's important to submit this form as soon as possible.</p>
+      <p>Please see the FAQ below to learn more about how the process works.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- APPLICATION -->
+    <section class="card">
+      <div id="formView">
+        <p class="sec-eyebrow">Application</p>
+        <h2>Tell us about your product <span style="font-weight:400;color:var(--muted);font-size:15px">(if you have several products, pick your best one)</span></h2>
+        <p class="lead">Please be thorough when completing this application. The more complete your answers, the better your opportunity.</p>
+
+        <div class="err" id="errBox">Something went wrong sending your application. Please try again, or email us directly.</div>
+
+        <form id="fxForm">
+          <input type="hidden" name="access_key" value="6405bf77-93e0-41d9-9ff0-f884683c006e">
+          <input type="hidden" name="subject" value="New Fox News Application — CES 2027">
+          <input type="hidden" name="from_name" value="VFS Fox News Application">
+          <input type="hidden" name="form_location" value="fox-news-application">
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+
+          <div class="field">
+            <label>Company name <span class="req">*</span></label>
+            <input type="text" name="Company" required>
+          </div>
+
+          <div class="row2">
+            <div class="field">
+              <label>Website <span class="req">*</span></label>
+              <input type="text" name="Website" placeholder="yourcompany.com" required>
+            </div>
+            <div class="field">
+              <label>CES 2027 booth number <span class="opt">(optional)</span></label>
+              <input type="text" name="Booth">
+            </div>
+          </div>
+
+          <div class="row2">
+            <div class="field">
+              <label>Your name <span class="req">*</span></label>
+              <input type="text" name="Contact Name" required>
+            </div>
+            <div class="field">
+              <label>Email <span class="req">*</span></label>
+              <input type="email" name="Email" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>What are you showing at CES 2027? <span class="req">*</span></label>
+            <textarea name="Product" placeholder="Tell us about your product or technology in a few sentences." required></textarea>
+          </div>
+
+          <div class="field">
+            <label>Why is it newsworthy? <span class="req">*</span></label>
+            <textarea name="Why Newsworthy" placeholder="What makes it new, surprising, or worth putting on camera right now?" required></textarea>
+          </div>
+
+          <div class="field">
+            <label>What is your live demo? <span class="req">*</span></label>
+            <textarea name="Live Demo" placeholder="In a sentence or two, what will your product actually do on camera?" required></textarea>
+          </div>
+
+          <div class="field">
+            <label>Link to your images <span class="req">*</span></label>
+            <input type="text" name="Image Links" placeholder="Paste a Google Drive or Dropbox link" required>
+            <p class="hint">Share a link to at least 3 product images. These images may be broadcast on air, so make sure they are high quality and best showcase your product. Please set the link so anyone can view it.</p>
+          </div>
+
+          <div class="field">
+            <label>B-roll video link <span class="opt">(if you have it)</span></label>
+            <input type="text" name="B-roll Link" placeholder="Paste a Google Drive, Dropbox, or YouTube link">
+            <p class="hint">B-roll is short, clean footage of your product in use. Producers love having it ready. Skip this if you don't have any yet.</p>
+          </div>
+
+          <button type="submit" class="btn" id="submitBtn">Submit my application</button>
+        </form>
+      </div>
+
+      <div class="done" id="doneView">
+        <div class="mark">✓</div>
+        <h2>Got it. Thank you.</h2>
+        <p>Your application is in. We'll review it and be in touch about putting you in front of Fox News at CES 2027.</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="card faq">
+      <p class="sec-eyebrow">Broadcast Day</p>
+      <h2>What your Fox News broadcast day looks like</h2>
+      <p class="lead">Here's what to expect if your product is booked for a live shot. Please read it closely and reach out with any questions.</p>
+
+      <details open>
+        <summary>When do we arrive and where do we enter?</summary>
+        <div class="ans">Plan to arrive between 4:00am and 4:15am. You'll come in through the after-hours entrance at the LVCC Central Hall. We'll send you a map with the entrance marked so it's easy to find.</div>
+      </details>
+
+      <details>
+        <summary>How do we get in that early?</summary>
+        <div class="ans">Everyone on your team needs a special after-hours wristband to get into the building. No one can get in without one. If you're attending Unveiled, Pepcom, or ShowStoppers before your broadcast day, the Fox team can get your wristbands to you there. If not, they'll meet you at the after-hours entrance the morning of your broadcast.</div>
+      </details>
+
+      <details>
+        <summary>Where do we go once we're inside?</summary>
+        <div class="ans">Head to the Central Broadcast Tower. Note this is different from the Central Broadcast Center. The Fox set is at the Broadcast Tower, first floor, corner stage. Coming from the direction you'll enter, their corner is all the way to the right. The map we send will show you the way.</div>
+      </details>
+
+      <details>
+        <summary>What setup will they provide?</summary>
+        <div class="ans">They provide a table and a power outlet. Anything else you need to demo your product well, please bring it yourself. That includes a Wi-Fi hotspot if your product needs internet. You must be fully set up no later than 4:45am so they can start broadcasting by 5:00am. There's a restroom nearby if your product needs water. Non-working or non-broadcast-ready samples may be set aside and left out of the broadcast.</div>
+      </details>
+
+      <details>
+        <summary>Do we have to stay the whole time?</summary>
+        <div class="ans">You don't have to, but we strongly recommend it. This is a multi-city broadcast, so your product could go live at different times. If anything goes wrong with your product during the show, no one will be available to fix it for you, and non-working items may be set aside and left out.</div>
+      </details>
+
+      <details>
+        <summary>Will anyone from our company be on camera?</summary>
+        <div class="ans">No. No one from your company appears on camera. We'll ask you for a few talking points ahead of time so we can share your message the right way.</div>
+      </details>
+
+      <details>
+        <summary>When will we be free to leave?</summary>
+        <div class="ans">The last broadcast wraps by 9:30am local time, and you'll be free to go by 10:00am at the latest.</div>
+      </details>
+
+      <details>
+        <summary>Will our sample be returned if we leave it there?</summary>
+        <div class="ans">No. They leave it where it is, and they can't guarantee it will still be there when you come back.</div>
+      </details>
+    </section>
+
+  </main>
+
+<script>
+  var form = document.getElementById('fxForm');
+  var btn = document.getElementById('submitBtn');
+  var errBox = document.getElementById('errBox');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    errBox.classList.remove('show');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    var data = new FormData(form);
+    fetch('https://api.web3forms.com/submit', { method:'POST', body:data })
+    .then(function(r){ return r.json(); })
+    .then(function(res){
+      if(res.success){
+        document.getElementById('formView').style.display='none';
+        document.getElementById('doneView').classList.add('show');
+        window.scrollTo({top:0,behavior:'smooth'});
+      } else { throw new Error(res.message || 'failed'); }
+    })
+    .catch(function(){
+      errBox.classList.add('show');
+      btn.disabled = false;
+      btn.textContent = 'Submit my application';
+    });
+  });
+</script>
+</body>
+</html>
