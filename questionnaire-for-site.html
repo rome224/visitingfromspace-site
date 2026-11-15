@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>CES Press Page Questionnaire | Visiting From Space</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--orange:#ff5a1f;--orange-soft:#fff1eb;--ink:#141414;--muted:#6b6b6b;--line:#e7e7e7;--field:#f6f6f6;--bg:#e9e9e9}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:15px;line-height:1.5}
+.top{background:#0b0b0b;color:#fff;border-top:3px solid var(--orange)}
+.nav{max-width:1100px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:900;letter-spacing:.5px;font-size:18px}
+.logo small{display:block;font-size:8px;letter-spacing:2px;font-weight:600;opacity:.8}
+.cesbtn{background:var(--orange);color:#fff;font-weight:700;font-size:11px;padding:7px 12px;border-radius:6px;text-decoration:none}
+.hero{max-width:1100px;margin:0 auto;padding:40px 24px 56px;position:relative}
+.eyebrow{color:#fff;font-size:11px;font-weight:800;letter-spacing:2px}
+.eyebrow:before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--orange);margin-right:8px;vertical-align:middle}
+.hero h1{font-size:clamp(44px,8vw,86px);line-height:1;margin:14px 0 18px;font-weight:900;letter-spacing:-3px}
+.hero h1 span{color:var(--orange)}
+.hero p{max-width:560px;margin-left:auto;color:#cfcfcf;font-size:16px}
+.wrap{max-width:1100px;margin:0 auto;padding:40px 24px 80px;display:grid;grid-template-columns:300px 1fr;gap:48px}
+@media(max-width:860px){.wrap{grid-template-columns:1fr}.side{position:static!important}}
+.side{position:sticky;top:20px;align-self:start}
+.side h4{font-size:10px;letter-spacing:2px;color:var(--ink);margin:0 0 18px}
+.side h4:before{content:"\25CF ";color:var(--orange)}
+.step{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid #d6d6d6}
+.step b{flex:none;width:36px;height:36px;border-radius:50%;background:var(--orange);color:#fff;display:grid;place-items:center;font-size:12px}
+.step strong{display:block;font-size:14px}
+.step span{color:var(--muted);font-size:13px}
+.progress{margin-top:24px;background:#fff;border-radius:12px;padding:16px}
+.progress .bar{height:8px;background:#eee;border-radius:9px;overflow:hidden;margin-top:8px}
+.progress .bar i{display:block;height:100%;width:0;background:var(--orange);transition:width .3s}
+.progress small{color:var(--muted)}
+#secnav{margin:10px 0 12px;display:flex;flex-direction:column;gap:2px}
+#secnav a{display:flex;justify-content:space-between;gap:8px;font-size:13px;color:var(--ink);text-decoration:none;padding:5px 8px;border-radius:6px}
+#secnav a:hover{background:#f3f3f3}
+#secnav a.cur{background:var(--orange-soft);font-weight:700}
+#secnav a i{font-style:normal;color:#bbb;font-size:12px}
+#secnav a.ok i{color:#2f7d32}
+@media(max-width:860px){#secnav{display:none}}
+.card{background:#fff;border-radius:16px;padding:36px;box-shadow:0 2px 20px rgba(0,0,0,.05)}
+.card h2{margin:0;font-size:22px}
+.card>p.sub{color:var(--muted);margin:4px 0 18px;font-size:13px}
+.note{background:var(--orange-soft);border-left:3px solid var(--orange);padding:14px 16px;border-radius:8px;font-size:13px;margin-bottom:10px}
+.savedbar{position:sticky;top:0;z-index:5;background:#fff;display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:12px}
+.who{color:var(--muted);font-size:12px}
+.gate{position:fixed;inset:0;background:rgba(11,11,11,.92);display:flex;align-items:center;justify-content:center;z-index:50;padding:20px}
+.gate .g{background:#fff;border-radius:16px;padding:32px;max-width:400px;width:100%}
+.gate h2{margin:0 0 6px;font-size:22px}
+.gate p{color:var(--muted);font-size:13px;margin:0 0 18px}
+.gate input{margin-bottom:12px;text-align:left}
+.gate .pin{font-size:22px;letter-spacing:8px;text-align:center}
+.gate .err{color:#d93025;font-size:13px;min-height:18px;margin-bottom:6px}
+.btn{background:var(--orange);color:#fff;border:0;border-radius:8px;font-weight:700;padding:10px 14px;cursor:pointer;font-family:inherit}
+.btn.ghost{background:#fff;color:var(--orange);border:1.5px solid var(--orange)}
+.status{font-size:12px;color:var(--muted)}
+.status.ok{color:#2f7d32}
+section.q{border-top:1px solid var(--line);margin-top:28px;padding-top:24px;scroll-margin-top:56px}
+section.q>h3{color:var(--orange);font-size:12px;letter-spacing:2px;margin:0 0 4px;text-transform:uppercase}
+section.q>p.why{color:var(--muted);font-size:13px;margin:0 0 16px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:600px){.row{grid-template-columns:1fr}.card{padding:22px}}
+.f{margin-bottom:16px}
+label.l{display:block;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;margin-bottom:6px}
+label.l em{color:var(--orange);font-style:normal}
+.hint{display:block;font-size:12px;color:var(--muted);margin:-2px 0 6px;line-height:1.4;text-transform:none;letter-spacing:0;font-weight:400}
+input[type=text],input[type=email],input[type=tel],input[type=url],input[type=time],textarea{width:100%;background:var(--field);border:1px solid var(--line);border-radius:8px;padding:11px 12px;font:inherit;font-size:14px;color:var(--ink)}
+textarea{min-height:96px;resize:vertical}
+textarea.tall{min-height:150px}
+input:focus,textarea:focus{outline:2px solid var(--orange);outline-offset:-1px;background:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:flex;align-items:flex-start;gap:8px;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer;font-size:14px;background:#fff;flex:1 1 260px}
+.chip:has(input:checked){border-color:var(--orange);background:var(--orange-soft)}
+.chip input{margin-top:3px;accent-color:var(--orange)}
+.chip small{display:block;color:var(--muted);font-size:12px}
+.box{border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:14px;background:#fcfcfc}
+.box h5{margin:0 0 12px;font-size:13px}
+.flex{display:none}
+.flex.on{display:block}
+.cond{display:none}.cond.on{display:block}
+.example{font-size:12px;color:#8a4a2c;background:#fff7f3;border-radius:6px;padding:6px 9px;margin:-2px 0 8px;display:block;text-transform:none;letter-spacing:0;font-weight:400}
+.submit{width:100%;padding:16px;border-radius:40px;font-size:16px;margin-top:28px}
+.req{text-align:center;color:var(--muted);font-size:12px;margin-top:8px}
+.missing{outline:2px solid #d93025!important}
+.done{display:none;text-align:center;padding:40px 10px}
+.done h2{font-size:28px}
+footer{background:#0b0b0b;color:#9a9a9a;font-size:12px;text-align:center;padding:28px}
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="nav"><div class="logo">VISITING<small>FROM SPACE</small></div><span class="cesbtn">CES 2027</span></div>
+  <div class="hero">
+    <div class="eyebrow">YOUR CES PRESS PAGE</div>
+    <h1>Welcome <span>Aboard</span></h1>
+    <p>Tell us about your company and what you're launching. We use your answers to write the press page reporters will see before they meet you. The more you share, the stronger your story will be.</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <aside class="side">
+    <h4>WHAT HAPPENS NEXT</h4>
+    <div class="step"><b>01</b><div><strong>Fill out the questionnaire</strong><span>Your whole team can work on it. Everyone signs in with the same link and PIN.</span></div></div>
+    <div class="step"><b>02</b><div><strong>We review your answers</strong><span>We'll reach out if we need anything else.</span></div></div>
+    <div class="step"><b>03</b><div><strong>We write your press page</strong><span>We turn your answers into the page we send to reporters.</span></div></div>
+    <div class="progress"><strong style="font-size:13px">Your progress</strong><nav id="secnav" aria-label="Sections"></nav><div class="bar"><i id="pbar"></i></div><small id="ptext">0% done</small></div>
+  </aside>
+
+  <main class="card">
+    <form id="qf" novalidate>
+    <h2>Questionnaire</h2>
+    <p class="sub">Most teams finish in about 45 minutes. You don't have to do it in one sitting. Short, plain answers are perfect.</p>
+
+    <div class="note"><strong>Every answer saves the moment you type it.</strong> Come back anytime with your link and PIN, on any computer or phone, and everything will be here. Your teammates can sign in with the same PIN and work on it with you. You can keep editing even after you submit.</div>
+    <div class="savedbar"><span class="status" id="status">Everything is saved</span><span class="who" id="who"></span></div>
+
+    <!-- 1 -->
+    <section class="q"><h3>1. About you</h3>
+      <div class="row">
+        <div class="f"><label class="l">Company name <em>*</em></label><input type="text" name="company" required></div>
+        <div class="f"><label class="l">Website <em>*</em></label><input type="url" name="website" placeholder="yourcompany.com" required></div>
+      </div>
+      <div class="row">
+        <div class="f"><label class="l">Your name <em>*</em></label><input type="text" name="contact_name" required></div>
+        <div class="f"><label class="l">Title</label><input type="text" name="contact_title"></div>
+      </div>
+      <div class="row">
+        <div class="f"><label class="l">Email <em>*</em></label><input type="email" name="contact_email" required></div>
+        <div class="f"><label class="l">Phone <em>*</em></label><input type="tel" name="contact_phone" required></div>
+      </div>
+      <div class="f"><label class="l">Where is the company based?</label><input type="text" name="based" placeholder="City, country"></div>
+    </section>
+
+    <!-- 2 -->
+    <section class="q"><h3>2. At CES</h3>
+      <p class="why">Your booth number goes in the top corner of your press page. Reporters use it to find you.</p>
+      <div class="f"><label class="l">Booth number and location <em>*</em><span class="hint">Write it exactly as CES gave it to you.</span></label><input type="text" name="booth" placeholder="e.g. LVCC North Hall, Booth #12345" required><span class="example">Don't have it yet? Write "not yet" and send it as soon as you do.</span></div>
+      <div class="f"><label class="l">Are you also at CES Unveiled, Pepcom or ShowStoppers?<span class="hint">These are press events. Tell us the event, date and table number.</span></label><input type="text" name="press_events"></div>
+      <div class="row">
+        <div class="f"><label class="l">How many from your team will attend?</label><input type="text" name="team_count" placeholder="e.g. 4"></div>
+        <div class="f"><label class="l">What day do you arrive?</label><input type="text" name="arrival" placeholder="e.g. Sunday, Jan 3"></div>
+      </div>
+      <div class="f"><label class="l">Who will speak with reporters at the show? <em>*</em><span class="hint">Name, title and email.</span></label><textarea name="spokesperson" required></textarea></div>
+      <div class="f"><label class="l">A mobile number we can call or text during the show <em>*</em></label><input type="tel" name="show_phone" required></div>
+      <div class="f"><label class="l">When are you NOT available to meet reporters during CES?<span class="hint">We schedule your reporter meetings. Tell us every time you're busy so we block it out. All times are Las Vegas time.</span></label>
+        <div id="blocks"></div>
+        <button type="button" class="btn ghost" id="addblock" style="width:100%;margin-top:4px">+ Add another time</button>
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section class="q"><h3>3. What are you showing?</h3>
+      <p class="why">Your answers here decide which questions you see below. Pick every type that fits.</p>
+      <div class="f"><label class="l">What kind of product is it? <em>*</em></label>
+        <div class="chips" id="types">
+          <label class="chip"><input type="checkbox" name="type" value="physical"><span>A physical product for people<small>Earbuds, wearables, home devices, robots, gadgets</small></span></label>
+          <label class="chip"><input type="checkbox" name="type" value="software"><span>Software or an app<small>Phone apps, web platforms, AI tools</small></span></label>
+          <label class="chip"><input type="checkbox" name="type" value="business"><span>A product for businesses<small>Sold to companies, hospitals, cities, factories. Includes chips, sensors and platforms other brands build in</small></span></label>
+          <label class="chip"><input type="checkbox" name="type" value="health"><span>Health, medical or science claims<small>Anything that improves health or has been tested in a study</small></span></label>
+        </div>
+      </div>
+      <div class="f"><label class="l">How many products are you showing at CES? <em>*</em><span class="hint">Every product goes on your one press page.</span></label>
+        <div class="chips" id="count">
+          <label class="chip"><input type="radio" name="product_count" value="one"><span>Just one</span></label>
+          <label class="chip"><input type="radio" name="product_count" value="several"><span>Two or more</span></label>
+        </div>
+      </div>
+      <div class="f"><label class="l">Where is your main product today? <em>*</em></label>
+        <div class="chips" id="stage">
+          <label class="chip"><input type="radio" name="stage" value="onsale"><span>On sale now</span></label>
+          <label class="chip"><input type="radio" name="stage" value="preorder"><span>Pre-order or crowdfunding</span></label>
+          <label class="chip"><input type="radio" name="stage" value="launching"><span>Launching at CES</span></label>
+          <label class="chip"><input type="radio" name="stage" value="prototype"><span>Prototype or available to license</span></label>
+        </div>
+      </div>
+      <div class="f"><label class="l">Main product name <em>*</em><span class="hint">If you have more than one, pick the one that's the biggest news. It leads your page.</span></label><input type="text" name="product_name" required></div>
+    </section>
+
+    <!-- 4 -->
+    <section class="q"><h3>4. What makes your product different</h3>
+      <p class="why">Tell us in your own words what makes it special and who it helps. Plain answers are perfect. We'll do the writing.</p>
+      <div class="f"><label class="l">What is it, in one sentence? <em>*</em><span class="hint">25 words or less. Say it like you'd tell a friend.</span></label><input type="text" name="one_line" required><span class="example">Example: "A smart dog collar that tells you your dog is sick before you can see it."</span></div>
+      <div class="f"><label class="l">What makes it different from everything else out there? <em>*</em><span class="hint">If it's the first, only, fastest, smallest or cheapest at something, tell us exactly what.</span></label><textarea name="first_only" required></textarea><span class="example">Example: "It's the first collar that tracks a dog's heart rate and breathing all day. Other collars only track where your dog is."</span></div>
+      <div class="f"><label class="l">Tell us about one real person with the problem you solve <em>*</em><span class="hint">3 to 6 sentences. What does their day look like before your product, and how does your product change it?</span></label><textarea class="tall" name="person_problem" required></textarea><span class="example">Example: "If you have an older dog, you know the worry. Dogs hide pain, so you don't find out something's wrong until it's serious. By then the vet bill is huge. Not anymore. PawPulse watches your dog's heart and breathing all day and alerts your phone the moment something changes."</span></div>
+      <div class="f"><label class="l">Do you have a tagline or hashtag?</label><input type="text" name="tagline" placeholder="e.g. #KnowYourDog"></div>
+      <div class="f"><label class="l">How big is the problem you solve?<span class="hint">If you know it, give a number. For example, how many people have this problem, how much it costs them, or how much time it wastes. Tell us where the number comes from.</span></label><textarea name="big_number"></textarea><span class="example">Example: "About 1 in 10 dogs will get heart disease, according to [source]."</span></div>
+    </section>
+
+    <!-- 5 -->
+    <section class="q"><h3>5. What's new at CES</h3>
+      <div class="f"><label class="l">What are you announcing or showing for the first time at CES? <em>*</em></label><textarea name="whats_new" required></textarea></div>
+      <div class="f"><label class="l">What can reporters see, try or do at your booth?<span class="hint">A live demo, something to wear or try, a photo moment.</span></label><textarea name="booth_demo"></textarea><span class="example">Example: "Meet our booth dog and watch its heart rate live on a phone."</span></div>
+      <div class="f"><label class="l">Have you been to CES before? What happened?<span class="hint">Awards, press you got, how visitors reacted.</span></label><textarea name="past_ces"></textarea></div>
+      <div class="f"><label class="l">Is there any news you'd let one big outlet announce before everyone else?<span class="hint">Some top outlets only cover a launch if they get the news first. This could be your price, launch date, a new partner or funding. Tell us what you could share.</span></label><textarea name="exclusive"></textarea></div>
+      <div class="f"><label class="l">Can you offer free product samples to top reporters?<span class="hint">This isn't required, but it helps. Samples give reporters from the biggest outlets an extra reason to visit your booth. We only offer them to those top reporters. Plan on about 25. The final number may go up or down.</span></label>
+        <div class="chips" id="samples_q"><label class="chip"><input type="radio" name="samples" value="yes"><span>Yes</span></label><label class="chip"><input type="radio" name="samples" value="maybe"><span>Maybe</span></label><label class="chip"><input type="radio" name="samples" value="no"><span>No</span></label></div></div>
+      <div class="cond" data-samples="show"><div class="f"><label class="l">About how many samples can you offer?</label><input type="text" name="samples_count" placeholder="e.g. 25"></div></div>
+    </section>
+
+    <!-- 6 -->
+    <section class="q"><h3>6. Features</h3>
+      <div class="f"><label class="l">What are your main product's best features? <em>*</em><span class="hint">Put each feature on its own line. Say what it is and what it does for the person using it. List as many as you like.</span></label><textarea class="tall" name="features" required style="min-height:200px"></textarea><span class="example">Example: "Tracks heart rate all day. You see right away if your dog is stressed or sick."</span></div>
+    </section>
+
+    <!-- 7 -->
+    <section class="q"><h3>7. Proof and numbers</h3>
+      <p class="why">Reporters trust numbers and names. Share anything you can make public.</p>
+      <div class="f"><label class="l">Awards and grants<span class="hint">CES Innovation Awards, design awards, industry awards, government grants. Include the year.</span></label><textarea name="awards"></textarea></div>
+      <div class="f"><label class="l">Funding or crowdfunding raised<span class="hint">Amount, number of backers, and how fast.</span></label><textarea name="funding"></textarea><span class="example">Example: "$800,000 from 3,000 backers in 30 days on Kickstarter."</span></div>
+      <div class="f"><label class="l">Customers, users, countries, units sold</label><textarea name="traction"></textarea></div>
+      <div class="f"><label class="l">Partners or well-known customers we can name</label><textarea name="partners"></textarea></div>
+      <div class="f"><label class="l">Is the company publicly traded?<span class="hint">If yes, give the stock symbol and exchange.</span></label><input type="text" name="public_listing"></div>
+      <div class="f"><label class="l">Any surprising facts about your product?<span class="hint">Fun comparisons and numbers reporters love to repeat.</span></label><textarea name="fun_facts"></textarea><span class="example">Example: "The collar checks your dog's heartbeat more often than a hospital heart monitor checks yours."</span></div>
+      <div class="f"><label class="l">Patents and certifications</label><textarea name="patents"></textarea></div>
+    </section>
+
+    <!-- 8 -->
+    <section class="q"><h3>8. Price and availability</h3>
+      <div class="row">
+        <div class="f"><label class="l">Price<span class="hint">A price, a range or "from $X".</span></label><input type="text" name="price"></div>
+        <div class="f"><label class="l">Where can people buy it?</label><input type="text" name="where_buy"></div>
+      </div>
+      <div class="f"><label class="l">When is it available? <em>*</em></label><input type="text" name="available_date" placeholder="e.g. Now, Shipping March 2027, or not announced yet" required></div>
+      <div class="cond" data-stage="preorder"><div class="f"><label class="l">Crowdfunding or pre-order details<span class="hint">Platform, launch date, early-bird price and the link.</span></label><textarea name="crowdfunding"></textarea></div></div>
+      <div class="cond" data-stage="prototype"><div class="f"><label class="l">Licensing or partnership details<span class="hint">What you're offering and to whom.</span></label><textarea name="licensing"></textarea></div></div>
+    </section>
+
+    <!-- 9 flex -->
+    <section class="q flex" data-type="physical"><h3>9. Specs</h3>
+      <p class="why">These go in a short spec card. Skip anything that doesn't apply.</p>
+      <div class="row">
+        <div class="f"><label class="l">Size</label><input type="text" name="spec_size" placeholder="e.g. 12 x 8 x 4 cm"></div>
+        <div class="f"><label class="l">Weight</label><input type="text" name="spec_weight"></div>
+      </div>
+      <div class="row">
+        <div class="f"><label class="l">Battery life</label><input type="text" name="spec_battery"></div>
+        <div class="f"><label class="l">Charge time</label><input type="text" name="spec_charge"></div>
+      </div>
+      <div class="row">
+        <div class="f"><label class="l">Connectivity</label><input type="text" name="spec_connect" placeholder="e.g. Bluetooth 5.3, Wi-Fi"></div>
+        <div class="f"><label class="l">Water or dust rating</label><input type="text" name="spec_water" placeholder="e.g. IPX4"></div>
+      </div>
+      <div class="row">
+        <div class="f"><label class="l">Materials</label><input type="text" name="spec_materials"></div>
+        <div class="f"><label class="l">Colors</label><input type="text" name="spec_colors"></div>
+      </div>
+      <div class="row">
+        <div class="f"><label class="l">Works with</label><input type="text" name="spec_compat" placeholder="e.g. iPhone, Android, PC"></div>
+        <div class="f"><label class="l">What's in the box</label><input type="text" name="spec_box"></div>
+      </div>
+      <div class="f"><label class="l">Any other key specs</label><textarea name="spec_other"></textarea></div>
+    </section>
+
+    <section class="q flex" data-type="software"><h3>9. How it works</h3>
+      <div class="f"><label class="l">How does someone use it, step by step? <em>*</em><span class="hint">Walk us through it the way a new user would. Put each step on its own line.</span></label><textarea class="tall" name="how_it_works" required></textarea><span class="example">Example: "Download the app and make an account. Snap the collar onto your dog. Check your dog's health on your phone any time."</span></div>
+      <div class="row">
+        <div class="f"><label class="l">Where does it run?</label><input type="text" name="sw_platforms" placeholder="e.g. iPhone, Android, web"></div>
+        <div class="f"><label class="l">Free, paid or subscription?</label><input type="text" name="sw_pricing"></div>
+      </div>
+    </section>
+
+    <section class="q flex" data-type="business"><h3>9. Who it's for</h3>
+      <div class="f"><label class="l">3 to 5 ways businesses use it <em>*</em><span class="hint">For each one, the kind of business and one real example.</span></label><textarea class="tall" name="biz_uses" required></textarea><span class="example">Example: "Gyms. Members check in by walking past the camera, so there's no line at the front desk."</span></div>
+      <div class="f"><label class="l">Customers you can name</label><textarea name="biz_customers"></textarea></div>
+      <div class="f"><label class="l">How do companies buy and set it up?</label><textarea name="biz_setup"></textarea></div>
+      <div class="f"><label class="l">Do other companies build it into their own products? <em>*</em><span class="hint">For example a chip, sensor, screen or software that goes inside another brand's device.</span></label>
+        <div class="chips" id="builtin_q"><label class="chip"><input type="radio" name="builtin" value="yes"><span>Yes</span></label><label class="chip"><input type="radio" name="builtin" value="no"><span>No</span></label></div></div>
+      <div class="cond" data-bi="yes">
+      <div class="f"><label class="l">Which brands use your technology? <em>*</em></label><textarea name="bi_partners" required></textarea></div>
+      <div class="f"><label class="l">What does it let them make?</label><textarea name="bi_enables"></textarea></div>
+      <div class="f"><label class="l">Which partner products will be at CES, and where?<span class="hint">Reporters can go see your technology inside real products.</span></label><textarea name="bi_atces"></textarea></div>
+      <div class="f"><label class="l">How does a company start building with it?</label><textarea name="bi_start"></textarea></div>
+    </div>
+    </section>
+
+    <section class="q flex" data-type="health"><h3>9. The proof</h3>
+      <p class="why">Reporters check health claims. Give us exactly what has been tested.</p>
+      <div class="f"><label class="l">What was tested, and who ran the study? <em>*</em><span class="hint">If it hasn't been tested yet, write "not yet".</span></label><textarea name="health_study" required></textarea></div>
+      <div class="f"><label class="l">The result as a number <em>*</em><span class="hint">If there's no result yet, write "not yet".</span></label><input type="text" name="health_result" required><span class="example">Example: "92% as accurate as a vet's heart monitor in a 2025 study with [university]."</span></div>
+      <div class="f"><label class="l">Approvals and their status<span class="hint">FDA, CE, or others. Say if it's cleared, pending or not needed.</span></label><textarea name="health_approvals"></textarea></div>
+      <div class="f"><label class="l">Doctors or experts who support it</label><textarea name="health_experts"></textarea></div>
+      <div class="f"><label class="l">Is there anything you're not allowed to claim?<span class="hint">So we don't write it by mistake.</span></label><textarea name="health_noclaim"></textarea></div>
+    </section>
+
+    <section class="q flex" data-type="several"><h3>9. Your other products</h3>
+      <p class="why">Your main product from section 3 leads the page. Every other product goes on the same page too. List each one here.</p>
+      <div class="f"><label class="l">Do these products work together as one system?<span class="hint">For example a collar, a charging base and an app that only work together.</span></label>
+        <div class="chips"><label class="chip"><input type="radio" name="lineup_system" value="system"><span>Yes, they work together</span></label><label class="chip"><input type="radio" name="lineup_system" value="separate"><span>No, each one is sold on its own</span></label></div></div>
+      <div class="cond" data-sys="system"><div class="f"><label class="l">How do they work together?<span class="hint">3 to 5 sentences. What does each part do, and what happens when you use them together?</span></label><textarea name="lineup_how"></textarea></div></div>
+      <div id="products"></div>
+      <button type="button" class="btn ghost" id="addprod" style="width:100%">+ Add another product</button>
+    </section>
+
+    <!-- 10 -->
+    <section class="q"><h3>10. Your story</h3>
+      <p class="why">This is the part reporters remember. The best stories start with one real moment.</p>
+      <div class="f"><label class="l">The moment it started <em>*</em><span class="hint">Where were you, who was there, and what did you see? 3 to 6 sentences. If there was no single moment, tell us how the company got started.</span></label><textarea class="tall" name="origin" required></textarea><span class="example">Example: "In 2019, Maria's dog Max seemed fine at breakfast. By dinner he was in the emergency room with heart failure. The vet said the signs had been there for weeks. She just couldn't see them."</span></div>
+      <div class="row">
+        <div class="f"><label class="l">Year founded <em>*</em></label><input type="text" name="founded_year" required></div>
+        <div class="f"><label class="l">Where founded</label><input type="text" name="founded_where"></div>
+      </div>
+      <div class="f"><label class="l">Your biggest milestones since then<span class="hint">3 to 5, with years.</span></label><textarea name="milestones"></textarea></div>
+    </section>
+
+    <!-- 11 -->
+    <section class="q"><h3>11. Your founder or leader</h3>
+      <div class="row">
+        <div class="f"><label class="l">Founder or CEO name <em>*</em><span class="hint">If the founder isn't involved anymore, give the leader reporters should know.</span></label><input type="text" name="founder_name" required></div>
+        <div class="f"><label class="l">Title <em>*</em></label><input type="text" name="founder_title" required></div>
+      </div>
+      <div class="f"><label class="l">Who are they, in one line?</label><input type="text" name="founder_line"><span class="example">Example: "A veterinarian, engineer and lifelong dog owner."</span></div>
+      <div class="f"><label class="l">Their past companies, jobs and schools <em>*</em><span class="hint">The names a reporter would recognize.</span></label><textarea name="founder_background" required></textarea></div>
+      <div class="f"><label class="l">One personal thing a reporter would remember</label><textarea name="founder_personal"></textarea></div>
+      <div class="f"><label class="l">Other leaders to include<span class="hint">Up to 2. Name, title and 2 lines about each.</span></label><textarea name="other_leaders"></textarea></div>
+    </section>
+
+    <!-- 12 -->
+    <section class="q"><h3>12. Your market</h3>
+      <div class="f"><label class="l">Who are your main competitors?</label><textarea name="competitors"></textarea></div>
+      <div class="f"><label class="l">Who is your ideal customer?</label><textarea name="ideal_customer"></textarea></div>
+    </section>
+
+    <!-- 13 -->
+    <section class="q"><h3>13. Press</h3>
+      <div class="f"><label class="l">Have you had press before? Please list links.</label><textarea name="past_press"></textarea></div>
+      <div class="f"><label class="l">Which outlets or reporters would you most like to be featured in?</label><textarea name="dream_outlets"></textarea></div>
+      <div class="f"><label class="l">Are there any outlets we should not contact?</label><textarea name="no_contact"></textarea></div>
+      <div class="f"><label class="l">Is there anything confidential we should not share with the media?<span class="hint">Include any dates we must wait for.</span></label><textarea name="confidential"></textarea></div>
+    </section>
+
+    <!-- 14 -->
+
+    <section class="q"><h3>14. Anything else</h3>
+      <div class="f"><label class="l">Anything else you'd like us to know?</label><textarea name="anything_else"></textarea></div>
+    </section>
+
+    <button type="submit" class="btn submit">Submit</button>
+    <p class="req">* Required. You can save and come back as many times as you like before you submit.</p>
+    </form>
+
+    <div class="done" id="done"><h2>Thank you!</h2><p>We've got your answers. We'll start writing your press page and reach out if we need anything else.</p><p class="status">You can still sign in with your link and PIN to add or change answers.</p></div>
+  </main>
+</div>
+<div class="gate" id="gate"><form class="g" id="gateform"><h2>Sign in</h2><p>Enter the 6-digit PIN Visiting From Space sent you. Your team uses the same PIN.</p>
+<label class="l" for="g_pin">PIN</label><input type="text" id="g_pin" class="pin" inputmode="numeric" maxlength="6" autocomplete="one-time-code">
+<label class="l" for="g_name">Your first name</label><input type="text" id="g_name" placeholder="So your team knows who saved what">
+<div class="err" id="g_err"></div><button class="btn" style="width:100%;padding:14px">Open my questionnaire</button>
+<p style="margin:14px 0 0">Lost your PIN? Email romeo@visitingfromspace.com</p></form></div>
+<footer>&copy; 2026 Visiting From Space. All rights reserved.</footer>
+
+<script>
+(function(){
+  // ---------- build repeated blocks ----------
+  const blocksEl=document.getElementById('blocks');
+  const DAYS=['Wed, Jan 6','Thu, Jan 7','Fri, Jan 8','Sat, Jan 9'];
+  const MAXB=10;
+  for(let i=1;i<=MAXB;i++){
+    blocksEl.insertAdjacentHTML('beforeend',`<div class="row blk" data-i="${i}" style="grid-template-columns:1.4fr 1fr 1fr;gap:10px;margin-bottom:10px;${i>1?'display:none':''}"><select name="busy${i}_day" aria-label="Day" style="width:100%;background:var(--field);border:1px solid var(--line);border-radius:8px;padding:11px 10px;font:inherit;font-size:14px"><option value="">Day</option>${DAYS.map(d=>`<option>${d}</option>`).join('')}</select><input type="time" name="busy${i}_from" aria-label="Busy from"><input type="time" name="busy${i}_to" aria-label="Busy until"></div>`);
+  }
+  blocksEl.insertAdjacentHTML('afterbegin','<div class="row" style="grid-template-columns:1.4fr 1fr 1fr;gap:10px;margin-bottom:4px;font-size:11px;font-weight:700;letter-spacing:.8px;color:var(--muted)"><span>DAY</span><span>BUSY FROM</span><span>BUSY UNTIL</span></div>');
+  document.getElementById('addblock').onclick=()=>{ const h=[...blocksEl.querySelectorAll('.blk')].find(b=>b.style.display==='none'); if(h){h.style.display='';h.querySelector('select').focus();} };
+  function showBlocks(){ let shown=1; for(let i=1;i<=MAXB;i++){ if(getVal(`busy${i}_day`)||getVal(`busy${i}_from`)) shown=Math.max(shown,i); } blocksEl.querySelectorAll('.blk').forEach(b=>{ if(+b.dataset.i<=shown) b.style.display=''; }); }
+  const prods = document.getElementById('products');
+  const MAXP=8;
+  for(let i=1;i<=MAXP;i++){
+    prods.insertAdjacentHTML('beforeend',`<div class="box prod" data-i="${i}" style="${i>1?'display:none':''}"><h5>Product ${i+1}</h5><div class="row"><div class="f"><label class="l">Name${i==1?' <em>*</em>':''}</label><input type="text" name="prod${i}_name" ${i==1?'required':''}></div><div class="f"><label class="l">Price</label><input type="text" name="prod${i}_price"></div></div><div class="f"><label class="l">What it is, in one line${i==1?' <em>*</em>':''}</label><input type="text" name="prod${i}_line" ${i==1?'required':''}></div><div class="row"><div class="f" style="margin:0"><label class="l">When is it available?</label><input type="text" name="prod${i}_when"></div><div class="f" style="margin:0"><label class="l">Is it new at CES?</label><div class="chips"><label class="chip" style="padding:8px 10px"><input type="radio" name="prod${i}_new" value="yes"><span>Yes</span></label><label class="chip" style="padding:8px 10px"><input type="radio" name="prod${i}_new" value="no"><span>No</span></label></div></div></div><div class="f" style="margin:12px 0 0"><label class="l">If it's new at CES, who is it for?</label><input type="text" name="prod${i}_who"></div><div class="f" style="margin:12px 0"><label class="l">If it's new at CES, what are its 3 best features?<span class="hint">One line each. New products get their own short section on the page.</span></label><textarea name="prod${i}_feats" style="min-height:70px"></textarea></div><div class="f" style="margin-bottom:0"><label class="l">Its 3 or 4 key specs (optional)<span class="hint">Size, weight, battery, price range, whatever matters most.</span></label><input type="text" name="prod${i}_specs"></div></div>`);
+  }
+  function showProds(){
+    let shown=1;
+    for(let i=1;i<=MAXP;i++){ if(getVal(`prod${i}_name`)||getVal(`prod${i}_line`)) shown=Math.max(shown,i); }
+    prods.querySelectorAll('.prod').forEach(b=>{ if(+b.dataset.i<=shown) b.style.display=''; });
+  }
+  document.getElementById('addprod').onclick=()=>{
+    const hidden=[...prods.querySelectorAll('.prod')].find(b=>b.style.display==='none');
+    if(hidden){hidden.style.display='';hidden.querySelector('input').focus();}
+  };
+
+  const form=document.getElementById('qf');
+  let server=false;
+  const statusEl=document.getElementById('status');
+
+  // ---------- show questions by product type and stage ----------
+  function applyBranches(){
+    const types=[...form.querySelectorAll('input[name=type]:checked')].map(x=>x.value);
+    if(getVal('product_count')==='several') types.push('several');
+    document.querySelectorAll('.flex').forEach(s=>s.classList.toggle('on',types.includes(s.dataset.type)));
+    const stage=(form.querySelector('input[name=stage]:checked')||{}).value;
+    document.querySelectorAll('.cond[data-stage]').forEach(c=>c.classList.toggle('on',c.dataset.stage===stage));
+    const sys=(form.querySelector('input[name=lineup_system]:checked')||{}).value;
+    document.querySelectorAll('.cond[data-sys]').forEach(c=>c.classList.toggle('on',c.dataset.sys===sys));
+    const bi=(form.querySelector('input[name=builtin]:checked')||{}).value;
+    document.querySelectorAll('.cond[data-bi]').forEach(c=>c.classList.toggle('on',c.dataset.bi===bi));
+    const sm=(form.querySelector('input[name=samples]:checked')||{}).value;
+    document.querySelectorAll('.cond[data-samples]').forEach(c=>c.classList.toggle('on',sm==='yes'||sm==='maybe'));
+    // number the flex sections 9, 9b, 9c...
+    let n=0; form.querySelectorAll('section.q').forEach(sec=>{ if(sec.classList.contains('flex')&&!sec.classList.contains('on')) return; n++; const h=sec.querySelector('h3'); h.textContent=n+'. '+h.textContent.replace(/^\d+[a-z]?\. /,''); });
+  }
+
+  // ---------- sign in with company link + PIN ----------
+  const API='/api/questionnaire';
+  // Browser-only saving is allowed ONLY when this page is opened as a plain file (no server).
+  const fileMode=location.protocol==='file:';
+  const SAVE_ERR='We couldn\'t save. Please check your connection and try again.';
+  const SIGNIN_ERR='We couldn\'t sign you in. Please check your connection and try again.';
+  const params=new URLSearchParams(location.search);
+  const code=params.get('c')||(fileMode?'preview':'');
+  let me='';
+  const gateEl=document.getElementById('gate');
+  let invalid=false;
+  function invalidLink(){
+    invalid=true; server=false;
+    const g=gateEl.querySelector('.g');
+    g.innerHTML='<h2>Link not valid</h2><p style="margin:0">This link isn\'t valid. Please check the link Visiting From Space sent you.</p>';
+    gateEl.style.display='flex';
+  }
+  function needSignIn(){
+    if(invalid) return;
+    server=false;
+    document.getElementById('g_err').textContent='Please sign in again to keep saving.';
+    gateEl.style.display='flex';
+  }
+  async function signIn(pin,name){
+    if(fileMode){ server=false; return ''; }
+    try{
+      const r=await fetch(API+'/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({code,pin,name})});
+      if(r.status===401) return 'That PIN doesn\'t match. Please check it and try again.';
+      if(r.status===429) return 'Too many tries. Please wait 15 minutes and try again.';
+      if(r.status===404){ invalidLink(); return 'invalid'; }
+      if(!r.ok) throw 0;
+      server=true;
+      return '';
+    }catch(e){ server=false; return SIGNIN_ERR; }
+  }
+  document.getElementById('gateform').addEventListener('submit',async e=>{
+    e.preventDefault();
+    if(invalid) return;
+    const pin=document.getElementById('g_pin').value.trim(), name=document.getElementById('g_name').value.trim();
+    const err=document.getElementById('g_err');
+    if(!/^\d{6}$/.test(pin)){err.textContent='Your PIN is 6 numbers.';return;}
+    if(!name){err.textContent='Please add your first name.';return;}
+    err.textContent='';
+    const msg=await signIn(pin,name); if(msg){ if(!invalid) err.textContent=msg; return; }
+    me=name; try{localStorage.setItem('vfsq_name_'+code,name);}catch(x){}
+    gateEl.style.display='none';
+    if(Object.keys(pending).length) await flush();
+    load();
+  });
+  // already signed in on this device? the site checks its 30-day sign-in cookie
+  (async()=>{
+    if(fileMode) return;
+    if(!code){ invalidLink(); return; }
+    try{ const r=await fetch(`${API}/me?c=${encodeURIComponent(code)}`);
+      if(r.status===404){ invalidLink(); return; }
+      if(r.ok){ const j=await r.json(); me=j.name||''; server=true; gateEl.style.display='none'; load(); } }catch(e){}
+  })();
+  const id=code;
+  // ---------- read / write values ----------
+  function getVal(name){
+    const els=form.querySelectorAll(`[name="${name}"]`);
+    if(!els.length) return '';
+    if(els[0].type==='checkbox') return [...els].filter(x=>x.checked).map(x=>x.value).join(',');
+    if(els[0].type==='radio') return ([...els].find(x=>x.checked)||{}).value||'';
+    return els[0].value;
+  }
+  function setVal(name,v){
+    const els=form.querySelectorAll(`[name="${name}"]`);
+    if(!els.length) return;
+    if(els[0].type==='checkbox'){const s=(v||'').split(','); els.forEach(x=>x.checked=s.includes(x.value));}
+    else if(els[0].type==='radio'){els.forEach(x=>x.checked=x.value===v);}
+    else if(document.activeElement!==els[0]) els[0].value=v||'';
+  }
+  const names=[...new Set([...form.elements].filter(e=>e.name).map(e=>e.name))];
+
+  let lastLocal={};
+  async function load(){
+    let data=null;
+    if(server){
+      try{ const r=await fetch(`${API}?c=${encodeURIComponent(code)}`);
+        if(r.status===401||r.status===403){ needSignIn(); return; }
+        if(r.ok){ const j=await r.json(); data=j.answers||{}; showWho(j.lastSaved); } }catch(e){}
+      if(!data){ statusEl.className='status'; statusEl.textContent='We couldn\'t load your answers. Please check your connection. Trying again...'; setTimeout(load,5000); return; }
+    } else if(fileMode){ try{ data=JSON.parse(localStorage.getItem('vfsq_'+id)||'{}'); }catch(e){ data={}; } }
+    else return;
+    names.forEach(n=>{ if(data[n]!==undefined && !(n in pending)) setVal(n,data[n]); });
+    applyBranches(); showProds(); showBlocks(); progress();
+    statusEl.className='status ok'; statusEl.style.color=''; statusEl.textContent=server?'Everything is saved':'Preview: saving in this browser only';
+  }
+  const pending={}; let timer=null;
+  function queue(name){
+    pending[name]=getVal(name); lastLocal[name]=Date.now();
+    statusEl.className='status'; statusEl.style.color=''; statusEl.textContent='Saving...';
+    clearTimeout(timer); timer=setTimeout(flush,700);
+  }
+  async function flush(){
+    clearTimeout(timer);
+    const batch={...pending}; Object.keys(pending).forEach(k=>delete pending[k]);
+    if(!Object.keys(batch).length) return true;
+    let ok=false;
+    if(server){ try{ const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({code,answers:batch,by:me})}); ok=r.ok;
+        if(r.status===401||r.status===403) needSignIn();
+        if(ok){ try{ const j=await r.json(); showWho(j.lastSaved); }catch(x){} } }catch(e){ ok=false; } }
+    else if(fileMode){ try{ const all=JSON.parse(localStorage.getItem('vfsq_'+id)||'{}'); Object.assign(all,batch); localStorage.setItem('vfsq_'+id,JSON.stringify(all)); ok=true; }catch(e){} }
+    // keep anything that didn't save so it is retried (newer typing wins)
+    if(!ok) Object.keys(batch).forEach(k=>{ if(!(k in pending)) pending[k]=batch[k]; });
+    statusEl.className=ok?'status ok':'status';
+    statusEl.style.color=ok?'':'#d93025';
+    statusEl.textContent=ok?('Saved '+new Date().toLocaleTimeString([], {hour:'numeric',minute:'2-digit'})+(server?'':' (preview, this browser only)')):SAVE_ERR;
+    return ok;
+  }
+  form.addEventListener('input',e=>{ if(e.target.name){ queue(e.target.name); applyBranches(); progress(); }});
+  form.addEventListener('change',e=>{ if(e.target.name){ queue(e.target.name); applyBranches(); progress(); }});
+
+  // pull teammates' answers every 20 seconds
+  setInterval(async()=>{
+    if(!server||document.hidden) return;
+    try{ const r=await fetch(`${API}?c=${encodeURIComponent(code)}`); if(r.status===401||r.status===403){ needSignIn(); return; } if(!r.ok) return; const j=await r.json(); const data=j.answers||{}; showWho(j.lastSaved);
+      names.forEach(n=>{ if(data[n]!==undefined && !(lastLocal[n] && Date.now()-lastLocal[n]<15000)) setVal(n,data[n]); });
+      applyBranches(); showProds(); showBlocks(); progress(); }catch(e){}
+  },20000);
+
+  function showWho(ls){ if(ls&&ls.by) document.getElementById('who').textContent='Last change by '+ls.by+', '+new Date(ls.at).toLocaleString([], {month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}); }
+  // retry anything that didn't save
+  setInterval(()=>{ if(Object.keys(pending).length) flush(); },15000);
+
+  // ---------- section list in the sidebar ----------
+  const nav=document.getElementById('secnav');
+  form.querySelectorAll('section.q').forEach((x,i)=>{ x.id='sec'+i; });
+  function secs(){ return [...form.querySelectorAll('section.q')].filter(x=>x.offsetParent!==null); }
+  function secDone(sec){
+    const req=[...sec.querySelectorAll('[required]')];
+    const groups=[...sec.querySelectorAll('.chips')].filter(c=>c.id);
+    if(req.length||groups.length) return req.every(el=>el.value.trim()) && groups.every(g=>g.querySelector('input:checked'));
+    return [...sec.querySelectorAll('input[type=text],input[type=url],input[type=tel],input[type=email],textarea')].some(el=>el.value.trim()) || !!sec.querySelector('input:checked');
+  }
+  function buildNav(){
+    nav.innerHTML='';
+    secs().forEach((sec,i)=>{
+      const a=document.createElement('a'); a.href='#'+sec.id; a.dataset.t=sec.id;
+      const t=sec.querySelector('h3').textContent.replace(/^\S+\s/,''); a.innerHTML='<span></span><i></i>'; a.firstChild.textContent=t;
+      const done=secDone(sec); a.classList.toggle('ok',done); a.lastChild.textContent=done?'\u2713':'';
+      a.onclick=e=>{e.preventDefault(); sec.scrollIntoView({behavior:'smooth',block:'start'});};
+      nav.appendChild(a); });
+    markCurrent();
+  }
+  function markCurrent(){ let cur=null; secs().forEach(sec=>{ if(sec.getBoundingClientRect().top<160) cur=sec.id; }); nav.querySelectorAll('a').forEach(a=>a.classList.toggle('cur',a.dataset.t===cur)); }
+  window.addEventListener('scroll',markCurrent,{passive:true});
+
+  // ---------- progress ----------
+  function progress(){
+    const req=[...form.querySelectorAll('[required]')].filter(el=>el.offsetParent!==null);
+    const typeOk=getVal('type')!=='', stageOk=getVal('stage')!=='', countOk=getVal('product_count')!=='';
+    const total=req.length+3, done=req.filter(el=>el.value.trim()).length+(typeOk?1:0)+(stageOk?1:0)+(countOk?1:0);
+    const pct=Math.round(done/total*100);
+    document.getElementById('pbar').style.width=pct+'%';
+    document.getElementById('ptext').textContent=pct+'% of required questions done';
+    buildNav();
+  }
+
+  // ---------- submit ----------
+  form.addEventListener('submit',async e=>{
+    e.preventDefault();
+    form.querySelectorAll('.missing').forEach(x=>x.classList.remove('missing'));
+    const req=[...form.querySelectorAll('[required]')].filter(el=>el.offsetParent!==null && !el.value.trim());
+    if(!getVal('type')) req.unshift(document.getElementById('types'));
+    if(!getVal('stage')) req.unshift(document.getElementById('stage'));
+    if(!getVal('product_count')) req.unshift(document.getElementById('count'));
+    const bq=document.getElementById('builtin_q'); if(bq.offsetParent!==null && !getVal('builtin')) req.unshift(bq);
+    if(req.length){ req.forEach(x=>x.classList.add('missing')); req[0].scrollIntoView({behavior:'smooth',block:'center'}); statusEl.textContent=req.length+' required answers are still empty. They are outlined in red.'; return; }
+    const sbtn=form.querySelector('button[type=submit]'); sbtn.disabled=true;
+    const saved=await flush();
+    if(!fileMode){
+      let sub=null;
+      if(server && saved){ try{ const r=await fetch(API+'/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({code})});
+          if(r.status===401||r.status===403) needSignIn();
+          if(r.ok) sub=await r.json(); }catch(err){} }
+      if(!sub){ sbtn.disabled=false; statusEl.className='status'; statusEl.style.color='#d93025'; statusEl.textContent=SAVE_ERR; statusEl.scrollIntoView({block:'center'}); return; }
+      await emailRomeo(sub); // the submit already counts, even if this email fails
+    }
+    sbtn.disabled=false;
+    form.style.display='none'; document.getElementById('done').style.display='block'; window.scrollTo(0,0);
+  });
+
+  // ---------- email Visiting From Space when a client submits (sent from the browser via Web3Forms) ----------
+  async function emailRomeo(sub){
+    try{
+      const t12=v=>{ if(!v) return '?'; const [h,m]=v.split(':').map(Number); return ((h%12)||12)+':'+String(m).padStart(2,'0')+(h<12?' AM':' PM'); };
+      const busy=[]; for(let i=1;i<=MAXB;i++){ const d=getVal(`busy${i}_day`),f=getVal(`busy${i}_from`),t=getVal(`busy${i}_to`); if(d||f||t) busy.push('- '+(d||'(no day)')+': '+t12(f)+' to '+t12(t)); }
+      const sm={yes:'Yes',maybe:'Maybe',no:'No'}[getVal('samples')]||'(not answered)';
+      const cnt=getVal('samples_count').trim();
+      const company=sub.company||getVal('company')||code;
+      const when=new Date(sub.at).toLocaleString('en-US',{timeZone:'America/Los_Angeles',dateStyle:'medium',timeStyle:'short'})+' Pacific time';
+      const message=['Company: '+company,'Submitted by: '+(sub.by||me),'Time: '+when,'',
+        'When are they NOT available to meet reporters (Las Vegas time):',busy.length?busy.join('\n'):'(none given)','',
+        'Free product samples: '+sm+((sm==='Yes'||sm==='Maybe')&&cnt?' (about '+cnt+')':''),'',
+        'See all answers on the admin page: '+location.origin+'/questionnaire/admin'].join('\n');
+      const fd=new FormData();
+      fd.append('access_key','6405bf77-93e0-41d9-9ff0-f884683c006e');
+      fd.append('subject','Questionnaire submitted: '+company);
+      fd.append('from_name','Visiting From Space Website');
+      fd.append('message',message);
+      const ctl=new AbortController(); const to=setTimeout(()=>ctl.abort(),10000);
+      await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Accept':'application/json'},body:fd,signal:ctl.signal});
+      clearTimeout(to);
+    }catch(e){}
+  }
+
+})();
+</script>
+</body>
+</html>

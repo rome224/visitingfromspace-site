@@ -18,7 +18,11 @@
     },
     {
       "source": "/questionnaire",
-      "destination": "/questionnaire.html"
+      "destination": "/questionnaire-for-site.html"
+    },
+    {
+      "source": "/questionnaire/admin",
+      "destination": "/questionnaire-admin.html"
     },
     {
       "source": "/ces-case-study-gyrogear",
@@ -27,11 +31,29 @@
   ],
   "headers": [
     {
-      "source": "/(application|questionnaire)(.html)?",
+      "source": "/application(.html)?",
       "headers": [
         {
           "key": "X-Robots-Tag",
           "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/(questionnaire|questionnaire\\.html|questionnaire/admin|questionnaire-for-site\\.html|questionnaire-admin\\.html|questionnaire-old\\.html)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
+    },
+    {
+      "source": "/api/:path*",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
         }
       ]
     }

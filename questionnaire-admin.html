@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Questionnaire Admin | Visiting From Space</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--orange:#ff5a1f;--orange-soft:#fff1eb;--ink:#141414;--muted:#6b6b6b;--line:#e7e7e7;--field:#f6f6f6;--bg:#e9e9e9;--red:#d93025;--green:#2f7d32}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:15px;line-height:1.5}
+.top{background:#0b0b0b;color:#fff;border-top:3px solid var(--orange)}
+.nav{max-width:1100px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-weight:900;letter-spacing:.5px;font-size:18px}
+.logo small{display:block;font-size:8px;letter-spacing:2px;font-weight:600;opacity:.8}
+.tag{background:var(--orange);color:#fff;font-weight:700;font-size:11px;padding:7px 12px;border-radius:6px}
+.hero{max-width:1100px;margin:0 auto;padding:28px 24px 40px}
+.eyebrow{color:#fff;font-size:11px;font-weight:800;letter-spacing:2px}
+.eyebrow:before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--orange);margin-right:8px;vertical-align:middle}
+.hero h1{font-size:clamp(36px,6vw,60px);line-height:1;margin:12px 0 0;font-weight:900;letter-spacing:-2px}
+.hero h1 span{color:var(--orange)}
+.wrap{max-width:1100px;margin:0 auto;padding:32px 24px 80px}
+.card{background:#fff;border-radius:16px;padding:28px;box-shadow:0 2px 20px rgba(0,0,0,.05);margin-bottom:24px}
+.card h2{margin:0 0 4px;font-size:20px}
+.sub{color:var(--muted);margin:0 0 16px;font-size:13px}
+label.l{display:block;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;margin-bottom:6px}
+input[type=text],input[type=password]{width:100%;background:var(--field);border:1px solid var(--line);border-radius:8px;padding:11px 12px;font:inherit;font-size:14px;color:var(--ink)}
+input:focus{outline:2px solid var(--orange);outline-offset:-1px;background:#fff}
+.btn{background:var(--orange);color:#fff;border:0;border-radius:8px;font-weight:700;padding:10px 14px;cursor:pointer;font-family:inherit;font-size:13px;white-space:nowrap}
+.btn:disabled{opacity:.6;cursor:default}
+.btn.ghost{background:#fff;color:var(--orange);border:1.5px solid var(--orange)}
+.btn.plain{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+.btn.danger{background:var(--red)}
+.btn.small{padding:7px 10px;font-size:12px}
+.addrow{display:flex;gap:10px}
+.addrow input{flex:1}
+@media(max-width:600px){.addrow{flex-direction:column}.card{padding:20px}}
+.err{color:var(--red);font-size:13px;min-height:18px;margin-top:8px}
+.okmsg{color:var(--green);font-size:13px}
+.result{background:var(--orange-soft);border-left:3px solid var(--orange);border-radius:8px;padding:16px;margin-top:16px}
+.result pre{margin:0 0 12px;white-space:pre-wrap;word-break:break-all;font-family:inherit;font-size:14px}
+.result .warn{font-size:12px;color:#8a4a2c;margin:8px 0 0}
+.gate{max-width:420px;margin:0 auto}
+.clients{display:flex;flex-direction:column;gap:12px}
+.client{border:1px solid var(--line);border-radius:12px;padding:16px;background:#fcfcfc}
+.client .head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+.client .name{font-weight:800;font-size:16px}
+.client .code{color:var(--muted);font-size:12px}
+.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:12px 0;font-size:13px}
+.meta b{display:block;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);font-weight:700}
+@media(max-width:760px){.meta{grid-template-columns:1fr 1fr}}
+.yes{color:var(--green);font-weight:700}
+.actions{display:flex;flex-wrap:wrap;gap:8px}
+.confirm{margin-top:12px;background:#fdecea;border-radius:8px;padding:12px;font-size:13px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.inline{margin-top:12px}
+.view{margin-top:14px;border-top:1px solid var(--line);padding-top:6px}
+.view h3{color:var(--orange);font-size:12px;letter-spacing:2px;margin:22px 0 8px;text-transform:uppercase}
+.view .qa{margin:0 0 12px}
+.view .qq{font-size:12px;font-weight:700;color:var(--ink)}
+.view .qq em{color:var(--orange);font-style:normal}
+.view .aa{white-space:pre-wrap;font-size:14px;background:var(--field);border-radius:8px;padding:8px 10px;margin-top:4px;word-break:break-word}
+.view .aa.none{color:#aaa;background:none;padding:2px 0}
+.view .aa.missing{color:var(--red);background:#fdecea}
+.view h4{font-size:13px;margin:14px 0 8px}
+.empty{color:var(--muted);font-size:14px;padding:12px 0}
+.toprow{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+footer{background:#0b0b0b;color:#9a9a9a;font-size:12px;text-align:center;padding:28px}
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="nav"><div class="logo">VISITING<small>FROM SPACE</small></div><span class="tag">ADMIN</span></div>
+  <div class="hero"><div class="eyebrow">CLIENT QUESTIONNAIRES</div><h1>Mission <span>Control</span></h1></div>
+</div>
+
+<div class="wrap">
+  <!-- sign in -->
+  <div class="card gate" id="login" hidden>
+    <h2>Sign in</h2>
+    <p class="sub">Enter your admin password.</p>
+    <form id="loginform">
+      <label class="l" for="pw">Password</label>
+      <input type="password" id="pw" autocomplete="current-password">
+      <div class="err" id="loginerr"></div>
+      <button class="btn" style="width:100%;padding:14px">Sign in</button>
+    </form>
+  </div>
+
+  <div id="app" hidden>
+    <div class="card">
+      <h2>Add a client</h2>
+      <p class="sub">Type the company name. You'll get their private link and PIN to email them.</p>
+      <form id="addform" class="addrow">
+        <input type="text" id="company" placeholder="Company name" maxlength="120" aria-label="Company name">
+        <button class="btn" id="addbtn">Add client</button>
+      </form>
+      <div class="err" id="adderr"></div>
+      <div id="addresult"></div>
+    </div>
+
+    <div class="card">
+      <div class="toprow"><h2 style="margin:0">Clients</h2><span><button class="btn plain small" id="refresh">Refresh</button> <button class="btn plain small" id="logout">Sign out</button></span></div>
+      <div class="clients" id="clients"><div class="empty">Loading...</div></div>
+    </div>
+  </div>
+</div>
+<footer>&copy; 2026 Visiting From Space. All rights reserved.</footer>
+
+<script>
+(function(){
+  const API='/api/questionnaire/admin/';
+  const $=id=>document.getElementById(id);
+  const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const fmtDate=iso=>iso?new Date(iso).toLocaleDateString([], {month:'short',day:'numeric',year:'numeric'}):'';
+  const fmtWhen=iso=>iso?new Date(iso).toLocaleString([], {month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}):'';
+  const linkFor=code=>location.origin+'/questionnaire?c='+code;
+
+  async function api(action,opts){
+    const r=await fetch(API+action,Object.assign({headers:{'Content-Type':'application/json'}},opts||{}));
+    let j={}; try{ j=await r.json(); }catch(e){}
+    return {status:r.status,ok:r.ok,data:j};
+  }
+  async function copyText(t){
+    try{ await navigator.clipboard.writeText(t); return true; }catch(e){
+      const ta=document.createElement('textarea'); ta.value=t; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select();
+      let ok=false; try{ ok=document.execCommand('copy'); }catch(x){} ta.remove(); return ok; }
+  }
+  function flash(btn,text){ const o=btn.textContent; btn.textContent=text; setTimeout(()=>btn.textContent=o,1800); }
+
+  // ---------- sign in ----------
+  async function start(){
+    let r; try{ r=await api('me'); }catch(e){ r={status:0}; }
+    if(r.ok){ $('login').hidden=true; $('app').hidden=false; loadClients(); }
+    else { $('app').hidden=true; $('login').hidden=false; $('pw').focus(); }
+  }
+  $('loginform').addEventListener('submit',async e=>{
+    e.preventDefault(); const err=$('loginerr'); err.textContent='';
+    const password=$('pw').value; if(!password){ err.textContent='Please type your password.'; return; }
+    let r; try{ r=await api('login',{method:'POST',body:JSON.stringify({password})}); }catch(x){ r={status:0}; }
+    if(r.ok){ $('pw').value=''; start(); return; }
+    err.textContent = r.status===401?'That password doesn\'t match. Please try again.'
+      : r.status===429?'Too many tries. Please wait 15 minutes and try again.'
+      : r.status===503?'The admin password hasn\'t been set up in Vercel yet.'
+      : 'We couldn\'t sign you in. Please check your connection and try again.';
+  });
+  $('logout').onclick=async()=>{ try{ await api('logout',{method:'POST'}); }catch(e){} start(); };
+  $('refresh').onclick=()=>loadClients();
+
+  // ---------- add client ----------
+  function pinBox(company,code,pin,title){
+    const text='Here is your private link to the Visiting From Space questionnaire:\n'+linkFor(code)+'\n\nYour PIN: '+pin+'\n\nYour whole team can sign in with the same link and PIN.';
+    const div=document.createElement('div'); div.className='result';
+    div.innerHTML='<strong>'+esc(title)+'</strong><pre></pre><button class="btn" type="button">Copy link and PIN</button><p class="warn">Copy this now. For safety, the PIN is only shown this one time. If it gets lost, use Reset PIN.</p>';
+    div.querySelector('pre').textContent='Link: '+linkFor(code)+'\nPIN: '+pin;
+    const b=div.querySelector('button'); b.onclick=async()=>flash(b,(await copyText(text))?'Copied!':'Copy failed, select the text above');
+    return div;
+  }
+  $('addform').addEventListener('submit',async e=>{
+    e.preventDefault(); const err=$('adderr'); err.textContent='';
+    const company=$('company').value.trim(); if(!company){ err.textContent='Please type the company name.'; return; }
+    $('addbtn').disabled=true;
+    let r; try{ r=await api('clients',{method:'POST',body:JSON.stringify({company})}); }catch(x){ r={status:0}; }
+    $('addbtn').disabled=false;
+    if(r.status===401){ start(); return; }
+    if(!r.ok){ err.textContent='We couldn\'t add the client. Please check your connection and try again.'; return; }
+    $('company').value='';
+    const res=$('addresult'); res.innerHTML=''; res.appendChild(pinBox(company,r.data.code,r.data.pin,company+' was added.'));
+    loadClients();
+  });
+
+  // ---------- questions, read from the questionnaire page itself so they always match ----------
+  let SPEC=null;
+  async function getSpec(){
+    if(SPEC) return SPEC;
+    const html=await (await fetch('/questionnaire-for-site.html',{cache:'no-store'})).text();
+    const doc=new DOMParser().parseFromString(html,'text/html');
+    const ownText=label=>[...label.childNodes].filter(n=>n.nodeType===3||(n.nodeType===1&&!n.matches('.hint,em'))).map(n=>n.textContent).join('').replace(/\s+/g,' ').trim();
+    SPEC=[...doc.querySelectorAll('section.q')].map(sec=>{
+      const s={title:sec.querySelector('h3').textContent.replace(/^\d+[a-z]?\.\s*/,'').trim(), type:sec.classList.contains('flex')?sec.dataset.type:null, items:[]};
+      sec.querySelectorAll('.f').forEach(f=>{
+        const label=f.querySelector('label.l'); if(!label) return;
+        const cond=f.closest('.cond'); const c=cond?Object.assign({},cond.dataset):null;
+        const q={q:ownText(label), req:!!label.querySelector('em')||!!f.querySelector('[required]'), cond:c};
+        if(f.querySelector('#blocks')){ q.kind='busy'; s.items.push(q); return; }
+        const els=[...f.querySelectorAll('[name]')]; if(!els.length) return;
+        q.name=els[0].getAttribute('name');
+        if(els[0].type==='radio'||els[0].type==='checkbox'){ q.kind='choice'; q.opts={};
+          els.forEach(x=>{ const sp=x.parentElement.querySelector('span'); q.opts[x.value]=sp?[...sp.childNodes].filter(n=>n.nodeType===3).map(n=>n.textContent).join('').trim():x.value; }); }
+        else q.kind='text';
+        s.items.push(q);
+      });
+      if(sec.querySelector('#products')) s.products=true;
+      return s;
+    });
+    return SPEC;
+  }
+  const PROD_Q=[['name','Name',true],['price','Price'],['line','What it is, in one line',true],['when','When is it available?'],['new','Is it new at CES?'],['who','If it\'s new at CES, who is it for?'],['feats','If it\'s new at CES, what are its 3 best features?'],['specs','Its 3 or 4 key specs (optional)']];
+  const t12=v=>{ if(!v) return '?'; const [h,m]=v.split(':').map(Number); return ((h%12)||12)+':'+String(m).padStart(2,'0')+(h<12?' AM':' PM'); };
+
+  // Work out which sections and questions this client's choices opened, with their answers.
+  function build(spec,a){
+    const g=n=>(a[n]==null?'':String(a[n]));
+    const types=g('type').split(',').filter(Boolean); if(g('product_count')==='several') types.push('several');
+    const condOn=c=>{ if(!c) return true;
+      if('stage' in c) return g('stage')===c.stage;
+      if('sys' in c) return g('lineup_system')===c.sys;
+      if('bi' in c) return g('builtin')===c.bi;
+      if('samples' in c) return g('samples')==='yes'||g('samples')==='maybe';
+      return true; };
+    const out=[]; let n=0, reqTotal=0, reqDone=0;
+    spec.forEach(sec=>{
+      if(sec.type && !types.includes(sec.type)) return;
+      n++; const S={title:n+'. '+sec.title, items:[], groups:[]};
+      sec.items.forEach(q=>{
+        if(!condOn(q.cond)) return;
+        let ans='';
+        if(q.kind==='busy'){ const lines=[]; for(let i=1;i<=10;i++){ const d=g(`busy${i}_day`),f=g(`busy${i}_from`),t=g(`busy${i}_to`); if(d||f||t) lines.push((d||'(no day)')+': '+t12(f)+' to '+t12(t)); } ans=lines.join('\n'); }
+        else if(q.kind==='choice'){ ans=g(q.name).split(',').filter(Boolean).map(v=>q.opts[v]||v).join(', '); }
+        else ans=g(q.name).trim();
+        if(q.req){ reqTotal++; if(ans) reqDone++; }
+        S.items.push({q:q.q, req:q.req, a:ans});
+      });
+      if(sec.products){
+        for(let i=1;i<=8;i++){
+          const items=PROD_Q.map(([k,label,req])=>{ let v=g(`prod${i}_${k}`).trim(); if(k==='new') v={yes:'Yes',no:'No'}[v]||v; return {q:label, req:!!req&&i===1, a:v}; });
+          const any=items.some(x=>x.a);
+          if(i===1){ items.filter(x=>x.req).forEach(x=>{ reqTotal++; if(x.a) reqDone++; }); }
+          if(any||i===1) S.groups.push({title:'Product '+(i+1), items});
+        }
+      }
+      out.push(S);
+    });
+    return {sections:out, reqTotal, reqDone};
+  }
+
+  function plainText(c,b){
+    const L=['Company: '+c.company,'Date: '+new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})];
+    const sub=c.submits.length?c.submits[c.submits.length-1]:null;
+    if(sub) L.push('Submitted: '+new Date(sub.at).toLocaleString('en-US',{dateStyle:'medium',timeStyle:'short'})+(sub.by?' by '+sub.by:''));
+    const addItems=items=>items.forEach(x=>{ if(!x.a && !x.req) return; L.push(''); L.push(x.q); L.push(x.a||'(left empty)'); });
+    b.sections.forEach(S=>{
+      L.push('',''); L.push(S.title.toUpperCase());
+      addItems(S.items);
+      S.groups.forEach(G=>{ L.push(''); L.push('-- '+G.title+' --'); addItems(G.items); });
+    });
+    return L.join('\n')+'\n';
+  }
+  function viewHtml(b){
+    const it=x=>'<div class="qa"><div class="qq">'+esc(x.q)+(x.req?' <em>*</em>':'')+'</div><div class="aa'+(x.a?'':(x.req?' missing':' none'))+'">'+(x.a?esc(x.a):(x.req?'(left empty)':'No answer'))+'</div></div>';
+    return b.sections.map(S=>'<h3>'+esc(S.title)+'</h3>'+S.items.map(it).join('')+S.groups.map(G=>'<h4>'+esc(G.title)+'</h4>'+G.items.map(it).join('')).join('')).join('');
+  }
+  const slug=s=>String(s).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'client';
+
+  // ---------- client list ----------
+  async function loadClients(){
+    const box=$('clients');
+    let r, spec;
+    try{ [r,spec]=await Promise.all([api('clients'),getSpec()]); }catch(e){ box.innerHTML='<div class="empty">We couldn\'t load your clients. Please check your connection and press Refresh.</div>'; return; }
+    if(r.status===401){ start(); return; }
+    if(!r.ok){ box.innerHTML='<div class="empty">We couldn\'t load your clients. Please press Refresh.</div>'; return; }
+    const list=r.data.clients||[];
+    if(!list.length){ box.innerHTML='<div class="empty">No clients yet. Add one above.</div>'; return; }
+    box.innerHTML='';
+    list.forEach(c=>{
+      const b=build(spec,c.answers||{});
+      const last=c.submits.length?c.submits[c.submits.length-1]:null;
+      const el=document.createElement('div'); el.className='client'; el.dataset.code=c.code;
+      el.innerHTML='<div class="head"><span class="name"></span><span class="code"></span></div>'+
+        '<div class="meta"><div><b>Added</b>'+esc(fmtDate(c.created))+'</div>'+
+        '<div><b>Last change</b>'+(c.lastSaved?esc(c.lastSaved.by)+', '+esc(fmtWhen(c.lastSaved.at)):'Not started')+'</div>'+
+        '<div><b>Submitted</b>'+(last?'<span class="yes">Yes</span>, '+esc(fmtWhen(last.at))+(c.submits.length>1?' ('+c.submits.length+' times)':''):'No')+'</div>'+
+        '<div><b>Required answers</b>'+b.reqDone+' of '+b.reqTotal+'</div></div>'+
+        '<div class="actions"><button class="btn small" data-a="view">View answers</button><button class="btn ghost small" data-a="copy">Copy for Claude</button><button class="btn ghost small" data-a="dl">Download</button><button class="btn plain small" data-a="link">Copy link</button><button class="btn plain small" data-a="reset">Reset PIN</button><button class="btn plain small" data-a="del" style="color:var(--red)">Delete</button></div>'+
+        '<div class="slot"></div><div class="viewslot"></div>';
+      el.querySelector('.name').textContent=c.company;
+      el.querySelector('.code').textContent='Link code: '+c.code;
+      const slot=el.querySelector('.slot'), vslot=el.querySelector('.viewslot');
+      el.querySelector('.actions').addEventListener('click',async e=>{
+        const btn=e.target.closest('button'); if(!btn) return; const a=btn.dataset.a;
+        if(a==='view'){ if(vslot.innerHTML){ vslot.innerHTML=''; btn.textContent='View answers'; } else { vslot.innerHTML='<div class="view">'+viewHtml(b)+'</div>'; btn.textContent='Hide answers'; } }
+        if(a==='copy') flash(btn,(await copyText(plainText(c,b)))?'Copied!':'Copy failed');
+        if(a==='dl'){ const blob=new Blob([plainText(c,b)],{type:'text/plain;charset=utf-8'}); const u=URL.createObjectURL(blob); const x=document.createElement('a'); x.href=u; x.download=slug(c.company)+'-questionnaire.txt'; document.body.appendChild(x); x.click(); x.remove(); setTimeout(()=>URL.revokeObjectURL(u),2000); }
+        if(a==='link') flash(btn,(await copyText(linkFor(c.code)))?'Copied!':'Copy failed');
+        if(a==='reset'){
+          slot.innerHTML='<div class="confirm">Make a new PIN for '+esc(c.company)+'? The old PIN stops working and everyone signed in will need the new one. <button class="btn small" data-c="yes">Yes, new PIN</button><button class="btn plain small" data-c="no">Cancel</button></div>';
+          slot.querySelector('[data-c=no]').onclick=()=>slot.innerHTML='';
+          slot.querySelector('[data-c=yes]').onclick=async()=>{
+            let r; try{ r=await api('reset-pin',{method:'POST',body:JSON.stringify({code:c.code})}); }catch(x){ r={status:0}; }
+            if(r.status===401){ start(); return; }
+            slot.innerHTML=''; if(!r.ok){ slot.innerHTML='<div class="err">We couldn\'t reset the PIN. Please try again.</div>'; return; }
+            const d=document.createElement('div'); d.className='inline'; d.appendChild(pinBox(c.company,c.code,r.data.pin,'New PIN for '+c.company+'.')); slot.appendChild(d);
+          };
+        }
+        if(a==='del'){
+          slot.innerHTML='<div class="confirm">Delete '+esc(c.company)+' and all their answers? This can\'t be undone. <button class="btn danger small" data-c="yes">Yes, delete</button><button class="btn plain small" data-c="no">Cancel</button></div>';
+          slot.querySelector('[data-c=no]').onclick=()=>slot.innerHTML='';
+          slot.querySelector('[data-c=yes]').onclick=async()=>{
+            let r; try{ r=await api('delete',{method:'POST',body:JSON.stringify({code:c.code})}); }catch(x){ r={status:0}; }
+            if(r.status===401){ start(); return; }
+            if(!r.ok){ slot.innerHTML='<div class="err">We couldn\'t delete. Please try again.</div>'; return; }
+            loadClients();
+          };
+        }
+      });
+      box.appendChild(el);
+    });
+  }
+
+  start();
+})();
+</script>
+</body>
+</html>
