@@ -251,6 +251,7 @@ btn.disabled=true;n.textContent='Sending...';
 fetch(f.action,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)}).then(function(r){return r.json()}).then(function(d){
 if(d.success){Array.prototype.forEach.call(f.children,function(c){if(!c.classList.contains('lf-done')&&c.type!=='hidden')c.style.display='none'});f.querySelector('.lf-done').hidden=false;f.classList.add('sent')}else throw 0}).catch(function(){btn.disabled=false;n.textContent='Sorry, something went wrong. Please try again.'})})});
 </script>
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
