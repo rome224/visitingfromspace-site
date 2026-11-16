@@ -1,12 +1,12 @@
 import bcrypt from 'bcryptjs';
-import { redis, K, send, body, validCode, isLocked, recordFailure, token, setCookie, CLIENT_COOKIE, SESSION_TTL } from '../_lib/q.js';
+import { redis, hgetall, K, send, body, validCode, isLocked, recordFailure, token, setCookie, CLIENT_COOKIE, SESSION_TTL } from '../_lib/q.js';
 
 // POST {code, pin, name} -> 200 ok | 401 wrong PIN | 429 locked | 404 unknown link
 export default async function handler(req, res) {
   if (req.method !== 'POST') return send(res, 405, { error: 'method' });
   const { code, pin, name } = body(req);
   if (!validCode(code)) return send(res, 404, { error: 'unknown' });
-  const client = await redis.hgetall(K.client(code));
+  const client = await hgetall(K.client(code));
   if (!client || !client.pinHash) return send(res, 404, { error: 'unknown' });
   if (await isLocked(K.lock(code))) return send(res, 429, { error: 'locked' });
 

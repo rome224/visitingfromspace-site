@@ -1,4 +1,4 @@
-import { redis, K, send, body, requireClient } from '../_lib/q.js';
+import { redis, hgetall, K, send, body, requireClient } from '../_lib/q.js';
 
 const FIELD_RE = /^[a-z0-9_]{1,40}$/;
 const MAX_VALUE = 20000;   // characters per answer
@@ -10,8 +10,8 @@ export default async function handler(req, res) {
   if (req.method === 'GET') {
     const code = String(req.query.c || '');
     if (!(await requireClient(req, res, code))) return;
-    const [answers, client] = await Promise.all([redis.hgetall(K.answers(code)), redis.hmget(K.client(code), 'lastBy', 'lastAt')]);
-    const lastBy = client && client.lastBy, lastAt = client && client.lastAt;
+    const [answers, client] = await Promise.all([hgetall(K.answers(code)), redis.hmget(K.client(code), 'lastBy', 'lastAt')]);
+    const [lastBy, lastAt] = Array.isArray(client) ? client : [client && client.lastBy, client && client.lastAt];
     return send(res, 200, { answers: answers || {}, lastSaved: lastBy ? { by: lastBy, at: lastAt } : null });
   }
   if (req.method === 'POST') {

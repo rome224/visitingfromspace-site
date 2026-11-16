@@ -5,6 +5,16 @@ import crypto from 'node:crypto';
 // Keep every value as a plain string (no automatic JSON parsing of answers like "25" or "true").
 export const redis = Redis.fromEnv({ automaticDeserialization: false });
 
+// With automatic deserialization off, HGETALL comes back as a flat [field, value, ...] list.
+export function toObj(raw) {
+  if (!raw) return {};
+  if (!Array.isArray(raw)) return raw;
+  const o = {};
+  for (let i = 0; i + 1 < raw.length; i += 2) o[raw[i]] = raw[i + 1];
+  return o;
+}
+export const hgetall = async key => toObj(await redis.hgetall(key));
+
 export const DAY = 24 * 60 * 60;
 export const SESSION_TTL = 30 * DAY;           // 30 days
 export const LOCK_WINDOW = 15 * 60;            // 15 minutes

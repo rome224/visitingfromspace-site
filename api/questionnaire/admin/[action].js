@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs';
 import {
-  redis, K, send, body, validCode, isLocked, recordFailure, token, setCookie, isAdmin, safeEqual,
+  redis, toObj, K, send, body, validCode, isLocked, recordFailure, token, setCookie, isAdmin, safeEqual,
   newCode, newPin, readCookie, ADMIN_COOKIE, SESSION_TTL,
 } from '../../_lib/q.js';
 
@@ -44,7 +44,7 @@ export default async function handler(req, res) {
       for (const c of codes) { p.hgetall(K.client(c)); p.hgetall(K.answers(c)); p.lrange(K.submits(c), 0, -1); }
       const r = await p.exec();
       codes.forEach((code, i) => {
-        const c = r[i * 3] || {}, answers = r[i * 3 + 1] || {}, subs = r[i * 3 + 2] || [];
+        const c = toObj(r[i * 3]), answers = toObj(r[i * 3 + 1]), subs = r[i * 3 + 2] || [];
         if (!c.company) return;
         out.push({
           code, company: c.company, created: c.created,
