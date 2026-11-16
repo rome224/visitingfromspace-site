@@ -48,6 +48,10 @@ input:focus{outline:2px solid var(--orange);outline-offset:-1px;background:#fff}
 .client .head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
 .client .name{font-weight:800;font-size:16px}
 .client .code{color:var(--muted);font-size:12px}
+.client .ids{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.client .pinf{display:inline-flex;align-items:center;gap:8px}
+.client .pinlabel{color:var(--ink);font-weight:700}
+.client .pinf .btn{padding:4px 8px;font-size:11px}
 .meta{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:12px 0;font-size:13px}
 .meta b{display:block;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);font-weight:700}
 @media(max-width:760px){.meta{grid-template-columns:1fr 1fr}}
@@ -149,10 +153,11 @@ footer{background:#0b0b0b;color:#9a9a9a;font-size:12px;text-align:center;padding
   $('refresh').onclick=()=>loadClients();
 
   // ---------- add client ----------
+  const inviteText=(code,pin)=>'Here is your private link to the Visiting From Space questionnaire:\n'+linkFor(code)+'\n\nYour PIN: '+pin+'\n\nYour whole team can sign in with the same link and PIN.';
   function pinBox(company,code,pin,title){
-    const text='Here is your private link to the Visiting From Space questionnaire:\n'+linkFor(code)+'\n\nYour PIN: '+pin+'\n\nYour whole team can sign in with the same link and PIN.';
+    const text=inviteText(code,pin);
     const div=document.createElement('div'); div.className='result';
-    div.innerHTML='<strong>'+esc(title)+'</strong><pre></pre><button class="btn" type="button">Copy link and PIN</button><p class="warn">Copy this now. For safety, the PIN is only shown this one time. If it gets lost, use Reset PIN.</p>';
+    div.innerHTML='<strong>'+esc(title)+'</strong><pre></pre><button class="btn" type="button">Copy link and PIN</button><p class="warn">You can always see this PIN in the client list below.</p>';
     div.querySelector('pre').textContent='Link: '+linkFor(code)+'\nPIN: '+pin;
     const b=div.querySelector('button'); b.onclick=async()=>flash(b,(await copyText(text))?'Copied!':'Copy failed, select the text above');
     return div;
@@ -267,22 +272,25 @@ footer{background:#0b0b0b;color:#9a9a9a;font-size:12px;text-align:center;padding
       const b=build(spec,c.answers||{});
       const last=c.submits.length?c.submits[c.submits.length-1]:null;
       const el=document.createElement('div'); el.className='client'; el.dataset.code=c.code;
-      el.innerHTML='<div class="head"><span class="name"></span><span class="code"></span></div>'+
+      el.innerHTML='<div class="head"><span class="name"></span><span class="ids"><span class="code"></span><span class="pinf"><span class="code pinlabel"></span><button class="btn plain small" data-a="pin" type="button">Copy PIN</button></span></span></div>'+
         '<div class="meta"><div><b>Added</b>'+esc(fmtDate(c.created))+'</div>'+
         '<div><b>Last change</b>'+(c.lastSaved?esc(c.lastSaved.by)+', '+esc(fmtWhen(c.lastSaved.at)):'Not started')+'</div>'+
         '<div><b>Submitted</b>'+(last?'<span class="yes">Yes</span>, '+esc(fmtWhen(last.at))+(c.submits.length>1?' ('+c.submits.length+' times)':''):'No')+'</div>'+
         '<div><b>Required answers</b>'+b.reqDone+' of '+b.reqTotal+'</div></div>'+
-        '<div class="actions"><button class="btn small" data-a="view">View answers</button><button class="btn ghost small" data-a="copy">Copy for Claude</button><button class="btn ghost small" data-a="dl">Download</button><button class="btn plain small" data-a="link">Copy link</button><button class="btn plain small" data-a="reset">Reset PIN</button><button class="btn plain small" data-a="del" style="color:var(--red)">Delete</button></div>'+
+        '<div class="actions"><button class="btn small" data-a="view">View answers</button><button class="btn ghost small" data-a="copy">Copy for Claude</button><button class="btn ghost small" data-a="dl">Download</button><button class="btn plain small" data-a="invite">Copy link and PIN</button><button class="btn plain small" data-a="reset">Reset PIN</button><button class="btn plain small" data-a="del" style="color:var(--red)">Delete</button></div>'+
         '<div class="slot"></div><div class="viewslot"></div>';
       el.querySelector('.name').textContent=c.company;
       el.querySelector('.code').textContent='Link code: '+c.code;
+      const showPin=()=>{ el.querySelector('.pinlabel').textContent='PIN: '+(c.pin||'Reset PIN to see it'); el.querySelector('[data-a=pin]').hidden=!c.pin; };
+      showPin();
       const slot=el.querySelector('.slot'), vslot=el.querySelector('.viewslot');
+      el.querySelector('[data-a=pin]').onclick=async e=>{ if(c.pin) flash(e.currentTarget,(await copyText(c.pin))?'Copied!':'Copy failed'); };
       el.querySelector('.actions').addEventListener('click',async e=>{
         const btn=e.target.closest('button'); if(!btn) return; const a=btn.dataset.a;
+        if(a==='invite') flash(btn,c.pin?((await copyText(inviteText(c.code,c.pin)))?'Copied!':'Copy failed'):'Reset PIN first');
         if(a==='view'){ if(vslot.innerHTML){ vslot.innerHTML=''; btn.textContent='View answers'; } else { vslot.innerHTML='<div class="view">'+viewHtml(b)+'</div>'; btn.textContent='Hide answers'; } }
         if(a==='copy') flash(btn,(await copyText(plainText(c,b)))?'Copied!':'Copy failed');
         if(a==='dl'){ const blob=new Blob([plainText(c,b)],{type:'text/plain;charset=utf-8'}); const u=URL.createObjectURL(blob); const x=document.createElement('a'); x.href=u; x.download=slug(c.company)+'-questionnaire.txt'; document.body.appendChild(x); x.click(); x.remove(); setTimeout(()=>URL.revokeObjectURL(u),2000); }
-        if(a==='link') flash(btn,(await copyText(linkFor(c.code)))?'Copied!':'Copy failed');
         if(a==='reset'){
           slot.innerHTML='<div class="confirm">Make a new PIN for '+esc(c.company)+'? The old PIN stops working and everyone signed in will need the new one. <button class="btn small" data-c="yes">Yes, new PIN</button><button class="btn plain small" data-c="no">Cancel</button></div>';
           slot.querySelector('[data-c=no]').onclick=()=>slot.innerHTML='';
@@ -290,6 +298,7 @@ footer{background:#0b0b0b;color:#9a9a9a;font-size:12px;text-align:center;padding
             let r; try{ r=await api('reset-pin',{method:'POST',body:JSON.stringify({code:c.code})}); }catch(x){ r={status:0}; }
             if(r.status===401){ start(); return; }
             slot.innerHTML=''; if(!r.ok){ slot.innerHTML='<div class="err">We couldn\'t reset the PIN. Please try again.</div>'; return; }
+            c.pin=r.data.pin; showPin();
             const d=document.createElement('div'); d.className='inline'; d.appendChild(pinBox(c.company,c.code,r.data.pin,'New PIN for '+c.company+'.')); slot.appendChild(d);
           };
         }

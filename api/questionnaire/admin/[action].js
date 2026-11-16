@@ -47,7 +47,7 @@ export default async function handler(req, res) {
         const c = toObj(r[i * 3]), answers = toObj(r[i * 3 + 1]), subs = r[i * 3 + 2] || [];
         if (!c.company) return;
         out.push({
-          code, company: c.company, created: c.created,
+          code, company: c.company, created: c.created, pin: c.pin || null,
           lastSaved: c.lastBy ? { by: c.lastBy, at: c.lastAt } : null,
           submits: subs.map(s => { try { return JSON.parse(s); } catch { return { at: s }; } }),
           answers,
@@ -65,7 +65,8 @@ export default async function handler(req, res) {
     for (let i = 0; i < 5; i++) { code = newCode(); if (!(await redis.exists(K.client(code)))) break; }
     const pin = newPin();
     const pinHash = await bcrypt.hash(pin, 10);
-    await redis.hset(K.client(code), { company, pinHash, pinVer: '1', created: new Date().toISOString() });
+    // pinHash checks sign-ins; pin is kept so the admin can look it up later (only admin routes return it)
+    await redis.hset(K.client(code), { company, pinHash, pin, pinVer: '1', created: new Date().toISOString() });
     await redis.sadd(K.clients, code);
     return send(res, 200, { code, pin, company });
   }
@@ -75,7 +76,7 @@ export default async function handler(req, res) {
     if (!validCode(code) || !(await redis.exists(K.client(code)))) return send(res, 404, { error: 'unknown' });
     const pin = newPin();
     const pinHash = await bcrypt.hash(pin, 10);
-    await redis.hset(K.client(code), { pinHash });
+    await redis.hset(K.client(code), { pinHash, pin });
     await redis.hincrby(K.client(code), 'pinVer', 1); // signs out everyone using the old PIN
     await redis.del(K.fail(code), K.lock(code));
     return send(res, 200, { code, pin });
