@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "source": "/questionnaire",
-      "destination": "/questionnaire-for-site.html"
+      "destination": "/questionnaire-for-site"
     }
   ],
   "redirects": [
