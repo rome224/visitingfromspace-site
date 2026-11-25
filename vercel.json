@@ -1,5 +1,11 @@
 {
   "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/questionnaire",
+      "destination": "/questionnaire-for-site.html"
+    }
+  ],
   "redirects": [
     {
       "source": "/iphipi",
@@ -8,6 +14,15 @@
     }
   ],
   "headers": [
+    {
+      "source": "/(application|questionnaire)(.html)?",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
     {
       "source": "/iphipi(/.*)?",
       "headers": [
