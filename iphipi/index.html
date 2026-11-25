@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IPHIPI at CES 2027 | Press Page</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* Brand colors: swap these two values for IPHIPI's real brand colors */
+  :root{--brand:#14b8a6;--brand2:#6366f1;--ink:#16181d;--muted:#5b616b;--soft:#f4f6f8;--dark:#0e1116;}
+  *{box-sizing:border-box}
+  body{margin:0;background:#e6e8eb;font-family:'Open Sans',Arial,sans-serif;color:var(--ink);font-size:14px;line-height:1.65}
+  .page{width:100%;max-width:960px;margin:0 auto;background:#fff;overflow:hidden}
+  img,video,iframe{max-width:100%;height:auto}
+  section{padding:56px 60px;position:relative}
+  .soft{background:var(--soft)}
+  .dark{background:var(--dark);color:#fff}
+  p{margin:0 0 12px}
+  .eyebrow{display:inline-block;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--brand);margin-bottom:8px}
+  h2{font-size:28px;font-weight:800;margin:0 0 22px;line-height:1.2}
+  h2 em{font-style:normal;color:var(--brand)}
+  h3{font-size:15px;font-weight:800;margin:0 0 6px}
+  .center{text-align:center}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .ph{background:#dfe3e8;border:2px dashed #a4acb6;color:#4a525c;display:flex;align-items:center;justify-content:center;text-align:center;font-size:11px;font-weight:700;letter-spacing:.4px;padding:14px;text-transform:uppercase;border-radius:14px}
+  .ph.video{background:#eef2f7;flex-direction:column;gap:10px}
+  .ph.video::before{content:"";width:0;height:0;border-left:26px solid #9aa6b4;border-top:16px solid transparent;border-bottom:16px solid transparent}
+  .todo{background:#fff3a3;color:#5a4a00;padding:0 5px;border-radius:4px;font-weight:700}
+  .btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;font-weight:800;font-size:14px;padding:13px 26px;border-radius:40px}
+  .icon{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand2));display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .icon svg{width:24px;height:24px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+  /* 1 header bar */
+  .bar{background:#000;color:#fff;display:flex;justify-content:space-between;align-items:center;padding:16px 40px}
+  .bar .ph{width:150px;height:44px;background:#1c1c1c;color:#aaa;border-color:#555;border-radius:6px}
+  .bar .ces{display:flex;align-items:center;gap:14px;text-align:right;font-size:12.5px;line-height:1.5;font-weight:600}
+  .bar .ces .ph{width:72px}
+
+  /* 2 hero */
+  .hero{position:relative;height:500px;color:#fff;overflow:hidden;background:#20242b}
+  .hero .ph{position:absolute;right:0;top:0;bottom:0;width:520px;border:0;border-radius:0;background:#3a4049;color:#9aa1aa;align-items:flex-end;padding:20px}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0e1116 42%,rgba(14,17,22,.75) 58%,rgba(14,17,22,0) 80%)}
+  .hero .txt{position:relative;z-index:2;padding:78px 60px;max-width:640px}
+  .pill{display:inline-block;border:1px solid var(--brand);color:var(--brand);border-radius:30px;padding:5px 14px;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:22px}
+  .hero h1{font-size:50px;line-height:1.05;font-weight:400;margin:0 0 22px}
+  .hero h1 b{display:block;font-weight:800;background:linear-gradient(90deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero .sub{font-size:17px;line-height:1.55;margin:0 0 18px;color:#d9dde3}
+  .hero .plus{font-size:13px;font-weight:700;color:#fff;margin:0 0 26px}
+  .hero .plus span{background:rgba(255,255,255,.12);padding:4px 10px;border-radius:20px}
+
+  /* 3 intro */
+  .intro .lead{font-size:19px;line-height:1.5;font-weight:600;margin-bottom:16px}
+  .quotes{display:flex;flex-direction:column;gap:8px;margin:0 0 16px}
+  .quotes span{align-self:flex-start;background:var(--soft);border-radius:16px 16px 16px 4px;padding:8px 14px;font-weight:600;font-size:13.5px}
+  .punch{font-size:22px;font-weight:800;color:var(--brand)}
+
+  /* 4 what's new */
+  .news{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:34px}
+  .news .card{background:#fff;border-radius:16px;padding:22px;box-shadow:0 6px 20px rgba(0,0,0,.06)}
+  .news .card .tag{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--brand2)}
+  .demos{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:18px 0 26px}
+  .demo{background:#fff;border-radius:14px;padding:16px 14px;border-top:4px solid var(--brand);box-shadow:0 6px 18px rgba(0,0,0,.05);font-size:12.5px;line-height:1.5}
+  .demo .n{font-size:26px;font-weight:800;color:var(--brand);line-height:1}
+  .demo h3{font-size:13.5px;margin:8px 0 6px}
+  .cta-band{background:linear-gradient(90deg,var(--brand),var(--brand2));color:#fff;border-radius:18px;padding:24px 28px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+  .cta-band p{margin:0;font-weight:700;font-size:15px}
+  .cta-band .small{font-weight:400;font-size:12.5px;opacity:.9;margin-top:4px}
+  .cta-band .btn{background:#fff;color:var(--ink);white-space:nowrap}
+
+  /* 5 why it matters */
+  .bigstats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:6px 0 34px}
+  .bigstats div{border-left:4px solid var(--brand);padding-left:14px}
+  .bigstats b{display:block;font-size:34px;font-weight:800;line-height:1.1;color:var(--ink)}
+  .bigstats span{font-size:12.5px;color:var(--muted)}
+  .timeline{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:22px}
+  .timeline::before{content:"";position:absolute;left:0;right:0;top:19px;height:3px;background:linear-gradient(90deg,var(--brand),var(--brand2))}
+  .tl{position:relative;padding-top:46px;font-size:12.5px;line-height:1.5}
+  .tl .dot{position:absolute;top:8px;left:0;width:26px;height:26px;border-radius:50%;background:#fff;border:4px solid var(--brand)}
+  .tl .time{font-weight:800;font-size:12px;color:var(--brand2);letter-spacing:.5px}
+  .tl h3{font-size:13.5px;margin:2px 0 6px}
+  .tl .said{font-style:italic;color:var(--muted);margin-bottom:6px}
+  .tl .did{background:var(--soft);border-radius:10px;padding:8px 10px}
+  .closer{margin-top:26px;font-size:20px;font-weight:800;text-align:center}
+
+  /* 6 features */
+  .fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:6px}
+  .fcard{background:#fff;border-radius:16px;padding:22px;box-shadow:0 6px 20px rgba(0,0,0,.06)}
+  .fcard .icon{margin-bottom:14px}
+  .fcard p{font-size:13px;margin:0;color:#3b4049}
+  .photos{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px;margin-top:22px}
+  .photos .ph{height:150px}
+  .photos img{height:180px}
+
+  /* 7 how it works */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative}
+  .step .ph{height:250px;margin-bottom:14px;border-radius:24px}
+  .step .num{width:34px;height:34px;border-radius:50%;background:var(--ink);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+  .step p{font-size:13px}
+
+  /* 8 builders */
+  .mou{background:var(--dark);color:#fff;border-radius:18px;padding:26px;margin:4px 0 20px;display:flex;gap:20px;align-items:center}
+  .mou b{font-size:40px;font-weight:800;line-height:1;color:var(--brand);white-space:nowrap}
+  .uses{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+  .use{background:#fff;border-radius:14px;padding:18px;box-shadow:0 6px 18px rgba(0,0,0,.05);font-size:13px}
+  .logos{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:22px}
+  .logos .ph{height:58px;font-size:9px;border-radius:10px}
+
+  /* 9 also new */
+  .product{display:grid;grid-template-columns:300px 1fr;gap:34px;align-items:center;background:var(--soft);border-radius:20px;padding:28px}
+  .product .ph{height:220px}
+  .chips{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+  .chip{background:#fff;border-radius:30px;padding:8px 14px;font-size:12.5px;font-weight:700;box-shadow:0 3px 10px rgba(0,0,0,.06)}
+  .chip b{color:var(--brand)}
+
+  /* 10 numbers */
+  .numbers{background:linear-gradient(135deg,#0e1116,#1d2333)}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:center}
+  .stats .icon{margin:0 auto 14px;width:58px;height:58px;border-radius:50%}
+  .stats .big{font-size:34px;font-weight:800;display:block;line-height:1.15;background:linear-gradient(90deg,var(--brand),#7dd3fc);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stats span.t{color:#c9cfd8;font-size:13px}
+
+  /* 11 price */
+  .price{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+  .pcard{border:1px solid #e3e6ea;border-radius:14px;padding:16px;font-size:13px}
+  .pcard .lbl{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
+
+  /* 12 video */
+  .vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .vgrid .ph{height:160px}
+
+  /* quote band */
+  .band{background:linear-gradient(90deg,var(--brand),var(--brand2));color:#fff;text-align:center;padding:50px 90px}
+  .band p{font-size:24px;line-height:1.4;font-weight:700;margin:0}
+  .band span{display:block;font-size:13px;font-weight:600;opacity:.85;margin-top:12px}
+
+  /* 13 story */
+  .story .ph{height:300px}
+  .story p.first{font-size:16px;font-weight:600}
+
+  /* 14 founder */
+  .founder{display:grid;grid-template-columns:240px 1fr;gap:36px;align-items:start}
+  .founder .ph{height:280px;border-radius:20px}
+  .founder .name{font-size:20px;font-weight:800;margin:0}
+  .founder .role{color:var(--brand);font-weight:700;margin-bottom:14px}
+  .quote{font-size:19px;font-weight:700;line-height:1.4;border-left:5px solid var(--brand);padding:4px 0 4px 16px;margin:18px 0}
+  .team{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
+  .member{text-align:center;font-size:12px;line-height:1.4}
+  .member .ph{width:84px;height:84px;border-radius:50%;margin:0 auto 8px;font-size:8px;padding:6px}
+  .member b{display:block;font-size:12.5px}
+
+  /* 15 contact */
+  .contact{background:var(--dark);color:#fff;text-align:center}
+  .contact .card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:30px;max-width:620px;margin:0 auto}
+
+  /* 16 multimedia */
+  .mm{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .mm .ph{height:130px;font-size:10px}
+  .mm .ph.tall{grid-row:span 2;height:auto}
+  .foot{background:#000;color:#777;text-align:center;font-size:11px;padding:16px}
+
+  /* ===== Tablets ===== */
+  @media (max-width:900px){
+    section{padding:44px 32px}
+    .demos{grid-template-columns:repeat(3,1fr)}
+    .price{grid-template-columns:repeat(3,1fr)}
+    .team{grid-template-columns:repeat(3,1fr);row-gap:20px}
+    .logos{grid-template-columns:repeat(3,1fr)}
+  }
+  /* ===== Phones ===== */
+  @media (max-width:640px){
+    body{font-size:15px}
+    section{padding:36px 20px}
+    h2{font-size:23px}
+    .cols,.split,.news,.fgrid,.uses,.stats,.vgrid,.product,.founder{grid-template-columns:1fr;gap:18px}
+    .demos{grid-template-columns:1fr 1fr}
+    .steps{grid-template-columns:1fr 1fr;gap:14px}
+    .step .ph{height:200px}
+    .price{grid-template-columns:1fr 1fr}
+    .bigstats{grid-template-columns:1fr;gap:14px}
+    .photos{grid-template-columns:1fr 1fr}
+    .photos .ph:first-child{grid-column:span 2}
+    .mm{grid-template-columns:1fr 1fr}
+    .mm .ph.tall{grid-row:auto;height:130px}
+    .logos{grid-template-columns:repeat(2,1fr)}
+    .team{grid-template-columns:1fr 1fr}
+    .demos .demo:last-child,.team .member:last-child{grid-column:span 2}
+    /* header bar stacks */
+    .bar{flex-direction:column;gap:12px;padding:16px 20px;text-align:center}
+    .bar .ces{flex-direction:column;text-align:center;gap:8px}
+    /* hero: photo on top, text below */
+    .hero{height:auto}
+    .hero::after{display:none}
+    .hero .ph{position:relative;width:100%;height:260px}
+    .hero .txt{padding:30px 20px 36px;max-width:none;background:#0e1116}
+    .hero h1{font-size:38px}
+    .hero .sub{font-size:16px}
+    /* timeline goes vertical */
+    .timeline{grid-template-columns:1fr;gap:22px;padding-left:34px}
+    .timeline::before{left:12px;right:auto;top:0;bottom:0;width:3px;height:auto}
+    .tl{padding-top:0}
+    .tl .dot{left:-34px;top:2px}
+    .cta-band{flex-direction:column;align-items:flex-start;padding:22px}
+    .mou{flex-direction:column;align-items:flex-start;padding:22px}
+    .product{padding:20px}
+    .product .ph,.story .ph{height:220px}
+    .founder .ph{height:300px}
+    .band{padding:36px 22px}
+    .band p{font-size:19px}
+    .quote{font-size:17px}
+    .contact .card{padding:22px}
+    .closer{font-size:17px}
+    .btn{display:block;text-align:center}
+  }
+  @media (max-width:380px){
+    .demos,.steps,.price,.team{grid-template-columns:1fr}
+    .demos .demo:last-child,.team .member:last-child{grid-column:auto}
+    .hero h1{font-size:33px}
+  }
+  .img{width:100%;display:block;object-fit:cover;border-radius:14px}
+  .prod{background:#fff;object-fit:contain;padding:10px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+  video.vid{width:100%;display:block;border-radius:14px;background:#000}
+  .hero .heroimg{position:absolute;right:0;top:0;height:100%;width:520px;object-fit:cover;object-position:center 18%}
+  .devices{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:22px}
+  .devices img{height:120px}
+  .member img{width:84px;height:84px;border-radius:50%;object-fit:cover;display:block;margin:0 auto 8px}
+  @media (max-width:640px){
+    .hero .heroimg{position:relative;width:100%;height:320px;object-position:center 12%}
+    .devices{grid-template-columns:repeat(3,1fr)}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 1. HEADER BAR -->
+  <div class="bar">
+    <div class="ph">IPHIPI logo</div>
+    <div class="ces">
+      <div class="ph">CES logo</div>
+      <div>January 6 to 9, CES 2027, Las Vegas<br>IPHIPI Experience Center<br>The Venetian, Suite <span class="todo">[#]</span></div>
+    </div>
+  </div>
+
+  <!-- 2. HERO -->
+  <div class="hero">
+    <img class="heroimg" src="images/hero-pankaj.jpg" alt="Pankaj Joshi, founder and CEO of IPHIPI">
+    <div class="txt">
+      <div class="pill">World debut at CES 2027</div>
+      <h1>Less to remember.<b>More to live.</b></h1>
+      <p class="sub">IPHIPI is the everyday AI agent that lives in your earbuds and glasses. It hears what you promise, then gets it done.</p>
+      <p class="plus"><span>Plus 1 more new product at CES: AI Mic Pro</span></p>
+      <a class="btn" href="#book">Book a demo at CES</a>
+    </div>
+  </div>
+
+  <!-- 3. INTRODUCING -->
+  <section class="intro">
+    <div class="split">
+      <div>
+        <div class="eyebrow">Introducing IPHIPI</div>
+        <p class="lead">You say it out loud all day.</p>
+        <div class="quotes"><span>"I'll send it by Friday."</span><span>"We're out of milk."</span><span>"I'll text her mom."</span></div>
+        <p>Then the next meeting starts, the kids need dinner, and it slips.</p>
+        <p>Today's AI assistants wait for you to ask. IPHIPI doesn't. It lives in the earbuds and glasses you already wear and listens for the plans and promises you make. Then it drafts the email, blocks the time, adds it to the list or sets the reminder.</p>
+        <p>It stays quiet in meetings and at dinner. It speaks up only when it's useful.</p>
+        <p class="punch">Heard, then done.</p>
+      </div>
+      <video class="vid" controls preload="metadata" playsinline src="videos/iphipi-opening.mp4"></video>
+    </div>
+  </section>
+
+  <!-- 4. WHAT'S NEW AT CES -->
+  <section class="soft" id="book">
+    <div class="eyebrow">What's new at CES 2027</div>
+    <h2>Launching to the world <em>for the first time</em></h2>
+    <div class="news">
+      <div class="card"><div class="tag">For people</div><h3>The IPHIPI Agentic AI Platform</h3><p style="margin:0">An everyday action agent that lives in earbuds and glasses and acts on what you say, before you ask.</p></div>
+      <div class="card"><div class="tag">For device makers</div><h3>A first for brands too</h3><p style="margin:0">Earbud, open-ear, glasses and AI device brands can launch their own branded everyday agent, built on any frontier LLM.</p></div>
+    </div>
+    <h3 style="font-size:18px">5 live demos at the IPHIPI Experience Center</h3>
+    <div class="demos">
+      <div class="demo"><div class="n">01</div><h3>A real meeting</h3>Promise a follow-up and watch the agent draft the email when the meeting ends.</div>
+      <div class="demo"><div class="n">02</div><h3>A real coffee</h3>Watch IPHIPI order your coffee by voice at the Starbucks inside The Venetian.</div>
+      <div class="demo"><div class="n">03</div><h3>Privacy, live</h3>Switch privacy modes by voice, and turn listening off with one phrase.</div>
+      <div class="demo"><div class="n">04</div><h3>Live translation</h3>Join a conversation and hear each speaker in your own language.</div>
+      <div class="demo"><div class="n">05</div><h3>A museum guide</h3>Walk through the Sistine Chapel, the Louvre and the Colosseum in camera glasses.</div>
+    </div>
+    <div class="cta-band">
+      <div><p>Book your 45-minute demo at The Venetian, Suite <span class="todo">[#]</span></p><p class="small">The Experience Center is invite-only. A limited number of guests take home a kit with agentic AI earbuds, smart glasses and the Action Agent app.</p></div>
+      <a class="btn" href="#"><span class="todo">[Booking link]</span></a>
+    </div>
+  </section>
+
+  <!-- 5. WHY IT MATTERS -->
+  <section>
+    <div class="eyebrow">Why it matters</div>
+    <h2>Most of what you need to do starts as <em>something you say out loud</em></h2>
+    <div class="bigstats">
+      <div><b>40%</b><span>of days, adults report a lapse on something they meant to do, in a national daily-diary study</span></div>
+      <div><b>55%</b><span>of people say next steps are unclear after meetings (Microsoft Work Trend Index)</span></div>
+      <div><b>71%</b><span>of the household tasks that take mental effort are handled by mothers (Journal of Marriage and Family, 2024)</span></div>
+    </div>
+    <p>The load falls hardest on working parents. In the US alone, 32.9 million families had children under 18 in 2025. Picture Jessica, a marketing manager in Denver with two kids, and one ordinary day.</p>
+    <div class="timeline">
+      <div class="tl"><div class="dot"></div><div class="time">7:15 AM</div><h3>Breakfast</h3><div class="said">"Maybe, I'll text her mom."</div><div class="did">IPHIPI waits for a quiet moment, then offers to text Lily's mom about the sleepover.</div></div>
+      <div class="tl"><div class="dot"></div><div class="time">10:30 AM</div><h3>Budget meeting</h3><div class="said">"I'll send the revised budget by Thursday."</div><div class="did">It stays silent, then drafts the email and blocks time to finish it.</div></div>
+      <div class="tl"><div class="dot"></div><div class="time">4:45 PM</div><h3>School pickup</h3><div class="said">"I need a headcount by Sunday."</div><div class="did">It offers to ask the family group for a Thanksgiving headcount.</div></div>
+      <div class="tl"><div class="dot"></div><div class="time">9:15 PM</div><h3>Couch time</h3><div class="said">No request needed.</div><div class="did">It gives her a short recap. The sleepover is set and the email is drafted.</div></div>
+    </div>
+    <p class="closer">Nothing slipped, and Jessica didn't type a single to-do.</p>
+  </section>
+
+  <!-- 6. FEATURES -->
+  <section class="soft">
+    <div class="eyebrow">Features</div>
+    <h2>What makes IPHIPI <em>different</em></h2>
+    <div class="fgrid">
+      <div class="fcard"><div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="3"/><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/></svg></div><h3>1. It knows the moment</h3><p>It understands what's being said, the sounds around you, where you are and the time of day. It learns your routines, so its help fits the moment.</p></div>
+      <div class="fcard"><div class="icon"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div><h3>2. It acts before you ask</h3><p>It hears the plans and promises you mention and acts on them, so you stop carrying a to-do list in your head.</p></div>
+      <div class="fcard"><div class="icon"><svg viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v5"/></svg></div><h3>3. Your voice is the interface</h3><p>Talk naturally while you walk, drive, cook or hold a toddler. No screen, no app, no typing.</p></div>
+      <div class="fcard"><div class="icon"><svg viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></div><h3>4. It has manners</h3><p>It stays quiet in meetings, at dinner and at bedtime, and speaks up only when it's useful. It always asks before it spends your money.</p></div>
+      <div class="fcard"><div class="icon"><svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><h3>5. Privacy by design</h3><p>Wearer-only listening, conversation mode with permission, or listening off with one phrase. Raw recordings are never stored, and your data stays on your phone.</p></div>
+      <div class="fcard"><div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div><h3>6. An agent for every part of your day</h3><p>It drafts follow-ups at work, reorders essentials at home, translates when you travel and counts reps at the gym.</p></div>
+    </div>
+    <div class="photos">
+      <img class="img prod" style="height:180px" src="images/iphipi-earbuds.jpg" alt="IPHIPI open-ear earbuds">
+      <img class="img prod" style="height:180px" src="images/device-tws-1.jpg" alt="Wireless earbuds">
+      <img class="img prod" style="height:180px" src="images/device-tws-2.jpg" alt="Wireless earbuds">
+    </div>
+  </section>
+
+  <!-- 7. HOW IT WORKS -->
+  <section>
+    <div class="eyebrow">How it works</div>
+    <h2>Up and running in <em>4 simple steps</em></h2>
+    <div class="steps">
+      <div class="step"><div class="ph">App screenshot: pairing</div><div class="num">1</div><h3>Put them on</h3><p>Get earbuds or glasses from an IPHIPI partner brand, with the agent built in. Pair them with your iPhone or Android phone.</p></div>
+      <div class="step"><div class="ph">App screenshot: privacy mode</div><div class="num">2</div><h3>Say hi</h3><p>Say "Hi <span class="todo">[brand]</span>" to wake the agent. Pick your privacy mode and connect your calendar, email and shopping apps.</p></div>
+      <div class="step"><div class="ph">App screenshot: agent action</div><div class="num">3</div><h3>Live your day</h3><p>Say "I'll send it Friday" or "We're out of milk," and the agent drafts, schedules and reminds. Confirm with one word: "Yes."</p></div>
+      <div class="step"><div class="ph">App screenshot: evening recap</div><div class="num">4</div><h3>Get your recap</h3><p>Each evening, it sums up what got done and what's waiting for your OK.</p></div>
+    </div>
+  </section>
+
+  <!-- 8. WHO BUILDS WITH IT -->
+  <section class="soft">
+    <div class="eyebrow">For device makers</div>
+    <h2>Your brand. Your agent. <em>Built on IPHIPI.</em></h2>
+    <p>Earbud, open-ear, glasses and pendant brands use IPHIPI to launch an AI agent under their own name, with their own wake word, voice and app. The customer relationship and data stay with the brand, and the agent brings the brand new subscription revenue.</p>
+    <div class="mou"><b>4 million</b><div>Brands have already signed MOUs for up to 4 million agentic AI devices across India and global markets over the next two years, before IPHIPI's public launch. <span class="todo">[Partner names: waiting on permission]</span></div></div>
+    <div class="uses">
+      <div class="use"><h3>Consumer audio brands</h3>Affordable AI earbuds, glasses and pendants for first-time AI users, in local languages.</div>
+      <div class="use"><h3>Museums and tour operators</h3>Camera glasses become a personal guide that explains what visitors see, in their own language.</div>
+      <div class="use"><h3>Car showrooms</h3>Customers look at a car and simply ask, "What's the range?"</div>
+    </div>
+    <h3 style="margin-top:26px">Hearables and wearables built with IPHIPI technology <span class="todo">[Confirm these devices use IPHIPI]</span></h3>
+    <div class="devices">
+      <img class="img prod" src="images/device-headset.jpg" alt="Headset">
+      <img class="img prod" src="images/device-clip.jpg" alt="Open-ear earbuds">
+      <img class="img prod" src="images/device-helmet.jpg" alt="Helmet with built-in microphones">
+      <img class="img prod" src="images/device-tws-1.jpg" alt="Wireless earbuds">
+      <img class="img prod" src="images/device-tws-2.jpg" alt="Wireless earbuds">
+      <img class="img prod" src="images/device-tws-3.jpg" alt="Wireless earbuds">
+    </div>
+    <div class="logos">
+      <div class="ph">Partner logo</div><div class="ph">Partner logo</div><div class="ph">Partner logo</div><div class="ph">Partner logo</div><div class="ph">Partner logo</div><div class="ph">Partner logo</div>
+    </div>
+    <p style="margin-top:14px"><span class="todo">[Partner products at CES, and where: waiting on permission]</span></p>
+  </section>
+
+  <!-- 9. ALSO NEW AT CES -->
+  <section>
+    <div class="eyebrow">Also new at CES</div>
+    <div class="product">
+      <div class="ph">Photo: AI Mic Pro</div>
+      <div>
+        <h2 style="margin-bottom:10px">AI Mic Pro</h2>
+        <p>AI noise suppression for earbuds, open-ear, glasses and pendants. Brands can use it with the IPHIPI agent, or with their own.</p>
+        <div class="chips">
+          <div class="chip"><b>85 dB</b> background noise removed</div>
+          <div class="chip"><b>25 dB</b> interfering talker removed</div>
+          <div class="chip"><b>40 km/h</b> wind</div>
+        </div>
+        <p style="margin:0"><span class="todo">[Price: confirm]</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. BY THE NUMBERS -->
+  <section class="dark numbers">
+    <h2 class="center" style="color:#fff">IPHIPI by the Numbers</h2>
+    <div class="stats">
+      <div><div class="icon"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="3"/><path d="M11 18h2"/></svg></div><span class="big">Up to 4 million</span><span class="t">agentic AI devices under MOU over the next two years</span></div>
+      <div><div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><span class="big">40% of days</span><span class="t">adults have a lapse on something they meant to do</span></div>
+      <div><div class="icon"><svg viewBox="0 0 24 24"><path d="M3 12h2l2-6 4 12 3-9 2 3h5"/></svg></div><span class="big">Up to 85 dB</span><span class="t">of background noise removed by AI Mic Pro</span></div>
+    </div>
+  </section>
+
+  <!-- 11. PRICE AND AVAILABILITY -->
+  <section>
+    <div class="eyebrow">Price and availability</div>
+    <div class="price">
+      <div class="pcard"><span class="lbl">Launch</span>January 2027, at CES <span class="todo">[for brands, people or both?]</span></div>
+      <div class="pcard"><span class="lbl">Price</span><span class="todo">[What "from $1" covers]</span></div>
+      <div class="pcard"><span class="lbl">For people</span>Free to start, with a paid subscription for heavy use and premium features</div>
+      <div class="pcard"><span class="lbl">Works with</span>iPhone and Android</div>
+      <div class="pcard"><span class="lbl">Brands and press</span>marketing@iphipi.com</div>
+    </div>
+  </section>
+
+  <!-- 12. VIDEO -->
+  <section class="soft">
+    <h2 class="center">See IPHIPI in action</h2>
+    <div class="vgrid">
+      <div style="grid-column:span 2"><video class="vid" controls preload="metadata" playsinline src="videos/iphipi-privacy.mp4"></video><p style="margin:8px 0 0;font-weight:700;font-size:13px">Privacy built in, explained by Pankaj Joshi</p></div>
+      <div class="ph video">Meeting Notes</div>
+      <div class="ph video">Travel Translator</div>
+    </div>
+  </section>
+
+  <!-- QUOTE BAND -->
+  <div class="band">
+    <p>"AI that only lives on a screen helps people who live on screens. We want it to help everyone else."</p>
+    <span>IPHIPI</span>
+  </div>
+
+  <!-- 13. OUR STORY -->
+  <section class="story">
+    <div class="eyebrow">Our story</div>
+    <h2>It started with <em>callers who couldn't hear</em></h2>
+    <div class="split" style="align-items:start">
+      <div>
+        <p class="first">We started IPHIPI convinced that edge AI would change everyday devices. India showed us where to start.</p>
+        <p>Earbuds were selling like hot cakes there. But in one of the noisiest countries in the world, everyone had the same complaint. Callers couldn't hear them. So that became our first mission. We built an ultra-low-power AI chip into earbuds to cut out the noise and make them truly hands-free.</p>
+        <p>Then, in 2026, AI agents arrived. Suddenly, earbuds, glasses and other wearables became the ears and eyes those agents needed. Most AI still lives on a screen, but nurses, drivers, shop owners and parents have full hands and no free screen.</p>
+        <p>Today, we're a team of about 30 across Singapore, where we're headquartered, Shenzhen and Hyderabad, where IPHIPI began in 2023. We've been building quietly, in stealth.</p>
+        <p><b>At CES 2027, we're launching the IPHIPI Agentic AI Platform to the world for the first time.</b></p>
+      </div>
+      <div class="ph">Photo: the team, or the early earbud work in India</div>
+    </div>
+  </section>
+
+  <!-- 14. ABOUT THE FOUNDER -->
+  <section class="soft">
+    <div class="eyebrow">About our founder</div>
+    <div class="founder">
+      <img class="img" style="height:300px;object-position:center top" src="images/pankaj-joshi.jpg" alt="Pankaj Joshi, founder and CEO of IPHIPI">
+      <div>
+        <p class="name">Pankaj Joshi</p>
+        <div class="role">Founder and CEO</div>
+        <p>Pankaj has more than 25 years as a tech and business leader and founder, and he has always been driven by technology that's affordable and accessible to the masses.</p>
+        <p>Before IPHIPI, he was Head of Product Management at Meeami Technologies, whose edge AI team was acquired by one of the FAANG companies in 2023. He led sales and marketing at InsideView, later bought by Demandbase, and marketing at HelloSoft, later bought by Imagination Technologies. He holds an MBA from INSEAD, an MS in Electrical Engineering from the University of Hawaii and a B.Tech from IIT Kharagpur.</p>
+        <p class="quote">"The next billion AI users won't type. They'll speak, in their own language."</p>
+      </div>
+    </div>
+    <div class="team">
+      <div class="member"><img src="images/ashrith-deshpande.jpg" alt="Ashrith Deshpande, CTO of IPHIPI"><b>Ashrith Deshpande</b>CTO. 14+ years in Apple audio systems engineering, 20+ US audio patents</div>
+      <div class="member"><div class="ph">Headshot</div><b>Wanpeng Zhang</b>Co-Founder and CBO</div>
+      <div class="member"><div class="ph">Headshot</div><b>Dhruv Gupta</b>COO</div>
+      <div class="member"><div class="ph">Headshot</div><b>Sasank Kottapalli</b>Co-Founder</div>
+      <div class="member"><div class="ph">Headshot</div><b>Kuldeep Daram</b>Co-Founder</div>
+    </div>
+  </section>
+
+  <!-- 15. MEDIA CONTACT -->
+  <section class="contact">
+    <div class="card">
+      <div class="eyebrow">Media contact</div>
+      <p style="font-size:16px"><span class="todo">[Visiting From Space media contact: name, email, phone]</span></p>
+      <p>Interviews with Pankaj Joshi, Founder and CEO, and Ashrith Deshpande, CTO, are available at CES 2027.</p>
+      <a class="btn" href="#"><span class="todo">[Booking link]</span></a>
+    </div>
+  </section>
+
+  <!-- 16. MULTIMEDIA -->
+  <section>
+    <h2>Multimedia</h2>
+    <div class="mm">
+      <a href="images/hero-pankaj.jpg" target="_blank"><img class="img" style="height:130px;object-position:top" src="images/hero-pankaj.jpg" alt="Pankaj Joshi"></a>
+      <a href="images/pankaj-joshi.jpg" target="_blank"><img class="img" style="height:130px;object-position:top" src="images/pankaj-joshi.jpg" alt="Pankaj Joshi headshot"></a>
+      <a href="images/ashrith-deshpande.jpg" target="_blank"><img class="img" style="height:130px" src="images/ashrith-deshpande.jpg" alt="Ashrith Deshpande headshot"></a>
+      <a href="images/iphipi-earbuds.jpg" target="_blank"><img class="img prod" style="height:130px" src="images/iphipi-earbuds.jpg" alt="IPHIPI earbuds"></a>
+      <a href="images/iphipi-feature-phone.jpg" target="_blank"><img class="img prod" style="height:130px" src="images/iphipi-feature-phone.jpg" alt="IPHIPI feature phone"></a>
+      <a href="images/device-headset.jpg" target="_blank"><img class="img prod" style="height:130px" src="images/device-headset.jpg" alt="Headset"></a>
+      <a href="images/device-clip.jpg" target="_blank"><img class="img prod" style="height:130px" src="images/device-clip.jpg" alt="Open-ear earbuds"></a>
+      <a href="images/device-helmet.jpg" target="_blank"><img class="img prod" style="height:130px" src="images/device-helmet.jpg" alt="Helmet"></a>
+      <a href="images/device-tws-1.jpg" target="_blank"><img class="img prod" style="height:130px" src="images/device-tws-1.jpg" alt="Earbuds"></a>
+      <a href="images/device-tws-2.jpg" target="_blank"><img class="img prod" style="height:130px" src="images/device-tws-2.jpg" alt="Earbuds"></a>
+      <a href="images/device-tws-3.jpg" target="_blank"><img class="img prod" style="height:130px" src="images/device-tws-3.jpg" alt="Earbuds"></a>
+      <div class="ph">IPHIPI logo</div>
+    </div>
+  </section>
+
+  <div class="foot">IPHIPI Global Pte Ltd · Singapore · Shenzhen · Hyderabad</div>
+</div>
+</body>
+</html>
